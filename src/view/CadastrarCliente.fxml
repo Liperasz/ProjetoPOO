@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="874.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CadastarClienteController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="90.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="10.0" prefWidth="264.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="166.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.0" minWidth="10.0" prefWidth="249.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="97.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="423.0" minHeight="10.0" prefHeight="393.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="181.0" minHeight="9.0" prefHeight="66.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <children>
+            <Label text="Nome" />
+            <TextField fx:id="jtfNomeAluno" />
+            <Label text="Email" />
+            <TextField fx:id="jtfEmailAluno" />
+            <Label text="RA" />
+            <TextField fx:id="jtfRA" />
+            <Label text="Senha" />
+            <PasswordField fx:id="jpfSenhaAluno" />
+         </children>
+      </VBox>
+      <Button fx:id="jbtnVoltarAluno" mnemonicParsing="false" text="Voltar" />
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label text="Data de Nascimento" />
+            <HBox prefHeight="51.0" prefWidth="266.0">
+               <children>
+                  <TextField fx:id="jtfDNAluno" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfMNAluno" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfANAluno" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" />
+               </children>
+            </HBox>
+            <Label text="Telefone/Celular" />
+            <TextField fx:id="jtfCelularAluno" />
+            <Label text="CPF" />
+            <TextField fx:id="jtfCPFAluno" />
+            <Label text="Sexo" />
+            <ChoiceBox fx:id="jcbSexoAluno" prefWidth="150.0" />
+            <Label text="Curso" />
+            <ChoiceBox fx:id="jcbCursoAluno" prefWidth="150.0" />
+         </children>
+      </VBox>
+      <Button fx:id="jbtnCadastrarAluno" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
