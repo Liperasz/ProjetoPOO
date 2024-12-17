@@ -47,6 +47,6 @@
             <ChoiceBox fx:id="jcbSexo" prefWidth="150.0" />
          </children>
       </VBox>
-      <Button fx:id="jbtnCadastrarAluno" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="jbtnCadastrar" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>

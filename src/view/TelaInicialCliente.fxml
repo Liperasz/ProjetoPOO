@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TelaInicialController">
+   <children>
+      <Button fx:id="jbtnCardapio" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#acessarCardapio" prefHeight="32.0" prefWidth="88.0" text="Cardápio">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Separator layoutX="12.0" layoutY="167.0" prefHeight="79.0" prefWidth="298.0" />
+      <TextField fx:id="jtfComentario" layoutX="12.0" layoutY="97.0" prefHeight="25.0" prefWidth="289.0" />
+      <Button fx:id="jbtnEnviar" layoutX="12.0" layoutY="151.0" mnemonicParsing="false" onAction="#enviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Text layoutX="12.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deixe seu comentário sobre a refeiçaõ aqui">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="12.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="jbtnLogin" layoutX="140.0" layoutY="231.0" mnemonicParsing="false" onAction="#acessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Text layoutX="12.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caso ainda não:">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="jbtnCadastrar" layoutX="140.0" layoutY="286.0" mnemonicParsing="false" onAction="#acessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

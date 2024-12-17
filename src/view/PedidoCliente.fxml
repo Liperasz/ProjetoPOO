@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PedidoClienteController">
+   <children>
+      <Button fx:id="jbtnVoltar" layoutX="33.0" layoutY="33.0" mnemonicParsing="false" onAction="#voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Text layoutX="33.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Faça seu pedido:">
+         <font>
+            <Font name="Arial" size="32.0" />
+         </font>
+      </Text>
+      <TextField fx:id="jtfPedido" layoutX="33.0" layoutY="151.0" prefHeight="25.0" prefWidth="246.0" />
+      <Button fx:id="jbtnEnviar" layoutX="33.0" layoutY="190.0" mnemonicParsing="false" onAction="#enviar" prefHeight="32.0" prefWidth="88.0" text="Enviar">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <ListView fx:id="listaHistorico" layoutX="329.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" />
+      <Separator layoutX="297.0" layoutY="61.0" orientation="VERTICAL" prefHeight="258.0" prefWidth="6.0" />
+      <Text layoutX="329.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seu histórico:">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>

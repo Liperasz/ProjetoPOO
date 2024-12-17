@@ -6,25 +6,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class TesteCadastrarCliente extends Application {
+import java.io.IOException;
+
+public class TelaInicialCliente extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
-        Parent root = FXMLLoader.load(getClass().getResource("CadastrarCliente.fxml"));
-
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/TelaInicialCliente.fxml"));
         Scene scene = new Scene(root);
-
-        primaryStage.setTitle("Cadastro de Cliente");
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
-
 }
