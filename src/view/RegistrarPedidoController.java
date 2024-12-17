@@ -30,33 +30,5 @@ public class RegistrarPedidoController implements Initializable {
 
     }
 
-    public void cadastrarPedido() {
-        jbtnCadastrar.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
 
-
-            }
-        });
-    }
-
-    public void escolherPedidos() {
-        jbtnEscolherPedidos.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-
-            }
-        });
-    }
-
-    public void Voltar() {
-        jbtnVoltar.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-
-            }
-        });
-    }
 }

@@ -28,7 +28,7 @@
             <PasswordField fx:id="jpfSenha" />
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" text="Voltar" />
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" />
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <Label text="Data de Nascimento" />
@@ -47,6 +47,6 @@
             <ChoiceBox fx:id="jcbSexo" prefWidth="150.0" />
          </children>
       </VBox>
-      <Button fx:id="jbtnCadastrar" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#CadastrarCliente" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>

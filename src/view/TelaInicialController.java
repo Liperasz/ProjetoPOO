@@ -29,6 +29,7 @@ public class TelaInicialController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
     public void acessarCardapio() throws IOException {
         Stage fecha = (Stage) jbtnCardapio.getScene().getWindow();
         fecha.close();
@@ -54,8 +55,8 @@ public class TelaInicialController implements Initializable {
     public void acessarCadastro() throws IOException {
         Stage fecha = (Stage) jbtnCadastrar.getScene().getWindow();
         fecha.close();
-        Parent login = FXMLLoader.load(getClass().getResource("/view/CadastrarCliente.fxml"));
-        Scene scene = new Scene(login);
+        Parent cadastro = FXMLLoader.load(getClass().getResource("/view/CadastrarCliente.fxml"));
+        Scene scene = new Scene(cadastro);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
