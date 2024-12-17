@@ -5,21 +5,21 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PagamentoClienteController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PagamentoClienteController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="85.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="10.0" prefWidth="315.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="752.0" minWidth="10.0" prefWidth="752.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="77.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="266.0" minHeight="10.0" prefHeight="223.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="321.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="520.0" minHeight="10.0" prefHeight="520.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <VBox prefHeight="258.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <ImageView fx:id="jimgPix" fitHeight="258.0" fitWidth="354.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="jimgPix" fitHeight="367.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../utils/imagens/qrcode-pix.png" />
                </image>

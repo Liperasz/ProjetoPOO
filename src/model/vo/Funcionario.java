@@ -15,4 +15,11 @@ public abstract class Funcionario extends Pessoa {
         this.turno = turno;
     }
 
+    public double getSalario() {
+        return salario;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
 }

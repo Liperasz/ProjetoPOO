@@ -7,41 +7,41 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TelaInicialController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TelaInicialController">
    <children>
       <Button fx:id="jbtnCardapio" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#acessarCardapio" prefHeight="32.0" prefWidth="88.0" text="Cardápio">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Separator layoutX="12.0" layoutY="167.0" prefHeight="79.0" prefWidth="298.0" />
-      <TextField fx:id="jtfComentario" layoutX="12.0" layoutY="97.0" prefHeight="25.0" prefWidth="289.0" />
-      <Button fx:id="jbtnEnviar" layoutX="12.0" layoutY="151.0" mnemonicParsing="false" onAction="#enviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
+      <Separator layoutX="57.0" layoutY="380.0" prefHeight="79.0" prefWidth="353.0" />
+      <TextField fx:id="jtfComentario" layoutX="25.0" layoutY="215.0" prefHeight="91.0" prefWidth="463.0" />
+      <Button fx:id="jbtnEnviar" layoutX="50.0" layoutY="336.0" mnemonicParsing="false" onAction="#enviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Text layoutX="12.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deixe seu comentário sobre a refeiçaõ aqui">
+      <Text layoutX="25.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deixe seu comentário sobre a refeiçaõ aqui">
          <font>
-            <Font name="Arial" size="15.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="12.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
+      <Text layoutX="56.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
          <font>
-            <Font name="Arial" size="15.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="jbtnLogin" layoutX="140.0" layoutY="231.0" mnemonicParsing="false" onAction="#acessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
+      <Button fx:id="jbtnLogin" layoutX="283.0" layoutY="486.0" mnemonicParsing="false" onAction="#acessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
          <font>
             <Font name="Arial" size="16.0" />
          </font>
       </Button>
-      <Text layoutX="12.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caso ainda não:">
+      <Text layoutX="50.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se Agora!">
          <font>
-            <Font name="Arial" size="15.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="jbtnCadastrar" layoutX="140.0" layoutY="286.0" mnemonicParsing="false" onAction="#acessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
+      <Button fx:id="jbtnCadastrar" layoutX="277.0" layoutY="555.0" mnemonicParsing="false" onAction="#acessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
          <font>
             <Font name="Arial" size="16.0" />
          </font>

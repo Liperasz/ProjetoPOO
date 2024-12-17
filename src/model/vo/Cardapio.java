@@ -14,4 +14,16 @@ public class Cardapio {
         this.data = data;
         this.turno = turno;
     }
+
+    public List<Comida> getComidas() {
+        return comidas;
+    }
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
 }

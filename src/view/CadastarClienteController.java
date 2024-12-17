@@ -49,23 +49,11 @@ public class CadastarClienteController implements Initializable {
     }
 
     public void Voltar() throws IOException {
-        Stage fecha = (Stage) jbtnVoltar.getScene().getWindow();
-        fecha.close();
-        Parent voltar = FXMLLoader.load(getClass().getResource("/view/TelaInicialCliente.fxml"));
-        Scene scene = new Scene(voltar);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
     }
 
     public void CadastrarCliente() throws IOException {
-        Stage fecha = (Stage) jbtnCadastrar.getScene().getWindow();
-        fecha.close();
-        Parent cadastrar = FXMLLoader.load(getClass().getResource("/view/PedidoCliente.fxml"));
-        Scene scene = new Scene(cadastrar);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
     }
 
 

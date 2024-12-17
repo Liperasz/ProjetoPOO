@@ -22,6 +22,31 @@ public abstract class Pessoa {
         this.senha = senha;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
+    public String getSenha() {
+        return senha;
+    }
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LocalDate getNascimento() {
+        return nascimento;
+    }
 }

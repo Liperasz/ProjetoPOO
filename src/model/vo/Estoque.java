@@ -14,6 +14,18 @@ public class Estoque {
         this.validade = validade;
         this.quantidade = quantidade;
     }
+
+    public Ingrediente getEstoqueingrediente() {
+        return estoqueingrediente;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public LocalDate getValidade() {
+        return validade;
+    }
 }
 
 

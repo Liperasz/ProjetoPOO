@@ -8,5 +8,7 @@ public class Ingrediente {
         this.nome = nome;
     }
 
-
+    public String getNome() {
+        return nome;
+    }
 }

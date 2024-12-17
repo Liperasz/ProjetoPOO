@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="view.HistoricoClienteController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="82.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="727.0" minWidth="10.0" prefWidth="727.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="235.0" minHeight="10.0" prefHeight="117.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="528.0" minHeight="10.0" prefHeight="518.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="130.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="54.0" prefWidth="68.0" text="Voltar" />
+      <Label text="Seu Histórico de pedidos!" GridPane.columnIndex="1">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>

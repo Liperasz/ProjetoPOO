@@ -9,9 +9,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.vo.Cliente;
+import model.vo.Comida;
+import model.vo.Ingrediente;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginClienteController implements Initializable {
@@ -29,22 +34,16 @@ public class LoginClienteController implements Initializable {
 
     }
     public void voltar() throws IOException {
-        Stage fecha = (Stage) jbtnVoltar.getScene().getWindow();
-        fecha.close();
-        Parent voltar = FXMLLoader.load(getClass().getResource("/view/TelaInicialCliente.fxml"));
-        Scene scene = new Scene(voltar);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+
     }
+
     public void logar() throws IOException {
-        Stage fecha = (Stage) jbtnLogin.getScene().getWindow();
-        fecha.close();
-        Parent login = FXMLLoader.load(getClass().getResource("/view/PedidoCliente.fxml"));
-        Scene scene = new Scene(login);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+
     }
 
 }

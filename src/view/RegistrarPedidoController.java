@@ -17,8 +17,6 @@ public class RegistrarPedidoController implements Initializable {
     @FXML
     private TextField jtfCliente;
     @FXML
-    private TextField jtfFuncionario;
-    @FXML
     private TextField jtfValor;
     @FXML
     private Button jbtnEscolherPedidos;

@@ -59,12 +59,7 @@ public class CardapioClienteController implements Initializable {
         dia.getItems().add("pinto3");*/
     }
     public void voltar() throws IOException {
-        Stage fecha = (Stage) jbtnVoltar.getScene().getWindow();
-        fecha.close();
-        Parent voltar = FXMLLoader.load(getClass().getResource("/view/TelaInicialCliente.fxml"));
-        Scene scene = new Scene(voltar);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+
     }
 }

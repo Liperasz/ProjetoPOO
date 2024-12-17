@@ -31,35 +31,23 @@ public class TelaInicialController implements Initializable {
     }
 
     public void acessarCardapio() throws IOException {
-        Stage fecha = (Stage) jbtnCardapio.getScene().getWindow();
-        fecha.close();
-        Parent cardapio = FXMLLoader.load(getClass().getResource("/view/CardapioCliente.fxml"));
-        Scene scene = new Scene(cardapio);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        TrocadorTelas.TrocarTela("/view/CardapioCliente.fxml", (Stage) jbtnCardapio.getScene().getWindow());
+
     }
     public void enviarComentario() {
         String c = jtfComentario.getText();
         System.out.println(c);
     }
     public void acessarLogin() throws IOException {
-        Stage fecha = (Stage) jbtnLogin.getScene().getWindow();
-        fecha.close();
-        Parent login = FXMLLoader.load(getClass().getResource("/view/LoginCliente.fxml"));
-        Scene scene = new Scene(login);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        TrocadorTelas.TrocarTela("/view/LoginCliente.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
     }
     public void acessarCadastro() throws IOException {
-        Stage fecha = (Stage) jbtnCadastrar.getScene().getWindow();
-        fecha.close();
-        Parent cadastro = FXMLLoader.load(getClass().getResource("/view/CadastrarCliente.fxml"));
-        Scene scene = new Scene(cadastro);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
+        TrocadorTelas.TrocarTela("/view/CadastrarCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+
     }
 
 
