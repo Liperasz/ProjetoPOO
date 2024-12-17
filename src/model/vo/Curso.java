@@ -1,0 +1,7 @@
+package model.vo;
+
+public enum Curso {
+
+    CC, BIOLOGIA, AGRONOMIA, EDFISICA, MATEMATICA, LETRAS, MEDICINA, VETERINARIA;
+
+}
