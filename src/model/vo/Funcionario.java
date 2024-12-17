@@ -1,6 +1,7 @@
 package model.vo;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public abstract class Funcionario extends Pessoa {
 
@@ -9,7 +10,7 @@ public abstract class Funcionario extends Pessoa {
     private String matricula;
 
 
-    protected Funcionario(String nome, Date nascimento, String email, Sexo sexo, String cpf, String telefone, String senha, double salario, Turno turno, String matricula) {
+    protected Funcionario(String nome, LocalDate nascimento, String email, Sexo sexo, String cpf, String telefone, String senha, double salario, Turno turno, String matricula) {
         super(nome, nascimento, email, sexo, cpf, telefone, senha);
 
         this.salario = salario;

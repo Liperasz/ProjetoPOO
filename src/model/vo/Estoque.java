@@ -1,17 +1,18 @@
 package model.vo;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 
 public class Estoque {
 
     private Ingrediente estoqueingrediente;
-    private Date validade;
+    private LocalDate validade;
     private int quantidade;
 
-    public Estoque(Ingrediente estoqueingrediente) {
+    public Estoque(Ingrediente estoqueingrediente, LocalDate validade, int quantidade) {
         this.estoqueingrediente = estoqueingrediente;
-        this.validade = new Date();
-        this.quantidade = 0;
+        this.validade = validade;
+        this.quantidade = quantidade;
     }
 }
 
