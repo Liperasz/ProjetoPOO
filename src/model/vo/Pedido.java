@@ -6,6 +6,7 @@ public class Pedido {
     private double valor;
     private Cliente cliente;
     private Funcionario funcionario;
+    private boolean entregue;
 
     public Pedido(int codigo, double valor, Cliente cliente, Funcionario funcionario) {
         this.codigo = codigo;

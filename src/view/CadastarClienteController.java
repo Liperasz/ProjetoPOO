@@ -1,5 +1,4 @@
 package view;
-import javafx.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -7,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import model.vo.Curso;
 import model.vo.Sexo;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,31 +13,27 @@ import java.util.ResourceBundle;
 public class CadastarClienteController implements Initializable {
 
     @FXML
-    private TextField jtfNomeAluno;
+    private TextField jtfNome;
     @FXML
-    private TextField jtfEmailAluno;
+    private TextField jtfEmail;
     @FXML
-    private TextField jtfCelularAluno;
+    private TextField jtfCelular;
     @FXML
-    private PasswordField jpfSenhaAluno;
+    private PasswordField jpfSenha;
     @FXML
-    private TextField jtfCPFAluno;
+    private TextField jtfCPF;
     @FXML
-    private TextField jtfDNAluno;
+    private TextField jtfDN;
     @FXML
-    private TextField jtfMNAluno;
+    private TextField jtfMN;
     @FXML
-    private TextField jtfRA;
+    private TextField jtfAN;
     @FXML
-    private TextField jtfANAluno;
+    private ChoiceBox<Sexo> jcbSexo;
     @FXML
-    private ChoiceBox<Sexo> jcbSexoAluno;
+    private Button jbtnVoltar;
     @FXML
-    private ChoiceBox<Curso> jcbCursoAluno;
-    @FXML
-    private Button jbtnVoltarAluno;
-    @FXML
-    private Button jbtnCadastrarAluno;
+    private Button jbtnCadastrar;
 
 
 
@@ -49,7 +43,7 @@ public class CadastarClienteController implements Initializable {
     }
 
     public void cadastrarCliente() {
-        jbtnCadastrarAluno.setOnAction(new EventHandler<ActionEvent>() {
+        jbtnCadastrar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
 

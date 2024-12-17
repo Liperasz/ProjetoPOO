@@ -21,34 +21,30 @@
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <children>
             <Label text="Nome" />
-            <TextField fx:id="jtfNomeAluno" />
+            <TextField fx:id="jtfNome" />
             <Label text="Email" />
-            <TextField fx:id="jtfEmailAluno" />
-            <Label text="RA" />
-            <TextField fx:id="jtfRA" />
+            <TextField fx:id="jtfEmail" />
             <Label text="Senha" />
-            <PasswordField fx:id="jpfSenhaAluno" />
+            <PasswordField fx:id="jpfSenha" />
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltarAluno" mnemonicParsing="false" text="Voltar" />
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" text="Voltar" />
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <Label text="Data de Nascimento" />
             <HBox prefHeight="51.0" prefWidth="266.0">
                <children>
-                  <TextField fx:id="jtfDNAluno" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
-                  <TextField fx:id="jtfMNAluno" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
-                  <TextField fx:id="jtfANAluno" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" />
+                  <TextField fx:id="jtfDN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfMN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfAN" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" />
                </children>
             </HBox>
             <Label text="Telefone/Celular" />
-            <TextField fx:id="jtfCelularAluno" />
+            <TextField fx:id="jtfCelular" />
             <Label text="CPF" />
-            <TextField fx:id="jtfCPFAluno" />
+            <TextField fx:id="jtfCPF" />
             <Label text="Sexo" />
-            <ChoiceBox fx:id="jcbSexoAluno" prefWidth="150.0" />
-            <Label text="Curso" />
-            <ChoiceBox fx:id="jcbCursoAluno" prefWidth="150.0" />
+            <ChoiceBox fx:id="jcbSexo" prefWidth="150.0" />
          </children>
       </VBox>
       <Button fx:id="jbtnCadastrarAluno" mnemonicParsing="false" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />
