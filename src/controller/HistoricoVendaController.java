@@ -26,10 +26,23 @@ public class HistoricoVendaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        jcbFiltro.getItems().add("Pessoa");
+        jcbFiltro.getItems().add("Comida");
+        jtfPesquisa.setDisable(true);
+
+        jcbFiltro.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == null) {
+                jtfPesquisa.setDisable(true);
+            } else {
+                jtfPesquisa.setDisable(false);
+            }
+        });
     }
 
     public void Voltar() throws IOException {
         TrocadorTelas.TrocarTela("/view/Relatorio.fxml", (Stage) jbtnVoltar.getScene().getWindow());
 
     }
+
+
 }

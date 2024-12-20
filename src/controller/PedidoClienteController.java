@@ -2,6 +2,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -46,27 +47,28 @@ public class PedidoClienteController implements Initializable {
     }
 
     public void Voltar() throws IOException {
-
         if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
             TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         } else {
             TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         }
-
-
-
     }
 
-    public void Enviar() throws IOException {
+    public void Enviar(int quant) throws IOException {
         if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
             TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnEnviar.getScene().getWindow());
         } else {
             TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
         }
-
     }
 
-
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
+    }
 
     public void AdicionarComidas(Comida comida) {
 

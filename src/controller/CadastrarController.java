@@ -52,7 +52,22 @@ public class CadastrarController implements Initializable {
         }
     }
 
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
+    }
+
+
     public void CadastrarCliente() throws IOException {
+
+        if (jtfEmail.getText().isEmpty() || jpfSenha.getText().isEmpty() || jtfCelular.getText().isEmpty() || jtfDN.getText().isEmpty() || jtfMN.getText().isEmpty() || jtfNome.getText().isEmpty() || jtfCPF.getText().isEmpty() || jtfAN.getText().isEmpty() || jcbSexo.getValue() == null) {
+            AlertaErro();
+            throw new IOException("Email ou senha Invalido");
+        }
+
 
         if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
             TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());

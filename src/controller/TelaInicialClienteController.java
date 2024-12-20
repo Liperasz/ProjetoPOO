@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,10 +28,12 @@ public class TelaInicialClienteController implements Initializable {
     }
 
 
-    public void EnviarComentario() {
+    public void EnviarComentario() throws IOException {
 
-        String c = jtfComentario.getText();
-        System.out.println(c);
+        if (jtfComentario.getText().isEmpty()) {
+            AlertaErro();
+            throw new IOException("Erro ao cadastrar");
+        }
     }
     public void AcessarLogin() throws IOException {
 
@@ -42,6 +45,12 @@ public class TelaInicialClienteController implements Initializable {
         TrocadorTelas.TrocarTela("/view/Cadastrar.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
 
     }
-
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
+    }
 
 }

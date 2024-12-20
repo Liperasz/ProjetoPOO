@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -16,8 +17,6 @@ public class RegistrarPedidoController implements Initializable {
     private Button jbtnVoltar;
     @FXML
     private TextField jtfCliente;
-    @FXML
-    private TextField jtfValor;
     @FXML
     private Button jbtnEscolherPedidos;
     @FXML
@@ -34,12 +33,22 @@ public class RegistrarPedidoController implements Initializable {
     }
 
     public void CadastrarPedido() throws IOException {
-
+        if (jtfCliente.getText().isEmpty()) {
+            AlertaErro();
+            throw new IOException("Erro ao cadastrar");
+        }
     }
 
     public void EscolherPedido() throws IOException {
         TrocadorTelas.TrocarTela("/view/PedidoCliente.fxml", (Stage) jbtnEscolherPedidos.getScene().getWindow());
 
+    }
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
     }
 
 

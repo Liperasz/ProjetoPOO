@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -29,13 +26,13 @@ public class CriarEstoqueController implements Initializable {
     @FXML
     private Button jbtnAddIngrediente;
     @FXML
-    private Button jbtnConcluir;
+    private Button jbtnConcluirEstoque;
     @FXML
     private Button jbtnVoltar;
 
     @Override
     public void initialize (URL url, ResourceBundle rb) {
-
+        jcbEscolherIngrediente.getItems().addAll("eita", "eita 2", "eita 3");
     }
 
     public void Voltar() throws IOException {
@@ -55,16 +52,35 @@ public class CriarEstoqueController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
-        concluir.setOnAction(e -> {CriarIngrediente();});
+        concluir.setOnAction(e -> {
+            try {
+                CriarIngrediente(NomeIngrediente);
+            } catch (IOException ex) {
+                System.out.println("Erro ao criar ingrediente: " + ex.getMessage());
+            }
+        });
+
 
     }
 
-    public void ConcluirEstoque() {
-
+    public void ConcluirEstoque() throws IOException {
+        if (jcbEscolherIngrediente.getValue() == null|| jtfLote.getText().isEmpty() || jtfQuantidade.getText().isEmpty()|| jtfValidade.getText().isEmpty()) {
+            AlertaErro();
+            throw new IOException("Os campos não foram devidamente preenchidos");
+        }
     }
-
-    public void CriarIngrediente() {
-
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
+    }
+    public void CriarIngrediente(TextField NomeIngrediente) throws IOException{
+        if (NomeIngrediente.getText().isEmpty()) {
+            AlertaErro();
+            throw new IOException("Os campos não foram devidamente preenchidos");
+        }
 
     }
 

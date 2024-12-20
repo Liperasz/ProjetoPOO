@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -36,8 +37,18 @@ public class CriarComidaController implements Initializable {
 
     }
 
-    public void Concluir() {
-
+    public void Concluir() throws IOException {
+        if (jtfValor.getText().isEmpty() || jtfNome.getText().isEmpty() || jtfDescricao.getText().isEmpty()) {
+            AlertaErro();
+            throw new IOException("Erro ao cadastrar");
+        }
     }
 
+    public void AlertaErro() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText("Um erro ocorreu");
+        alert.setContentText("Os campos devem ser preenchidos!");
+        alert.showAndWait();
+    }
 }
