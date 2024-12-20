@@ -44,35 +44,21 @@ public class CadastrarController implements Initializable {
     }
 
     public void Voltar() throws IOException {
-        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+
+        if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
+            TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/Funcionario.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        }
     }
 
     public void CadastrarCliente() throws IOException {
 
-        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+        if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
+            TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/Funcionario.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+        }
     }
 
-    public void DiaNascimento() throws IOException {
-
-    }
-
-    public void MesNascimento() throws IOException {
-
-    }
-
-    public void AnoNascimento() throws IOException {
-
-    }
-
-    public void getTelefone() {
-
-    }
-
-    public void getCPF() throws IOException {
-
-    }
-
-    public void setSexo() throws IOException {
-
-    }
 }

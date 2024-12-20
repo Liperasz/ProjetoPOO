@@ -20,7 +20,7 @@
         </rowConstraints>
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="473.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cardapio:" GridPane.columnIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cardápio:" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="32.0" />
                </font>
@@ -32,8 +32,15 @@
             </Button>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir" />
-                  <Button fx:id="jbtnCriarComida" mnemonicParsing="false" onAction="#CriarComida" prefHeight="57.0" prefWidth="175.0" text="Criar Comida" />
+                  <Button fx:id="jbtnCriarComida" mnemonicParsing="false" onAction="#CriarComida" prefHeight="57.0" prefWidth="175.0" text="Criar Comida">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </HBox>
          </children>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -11,16 +12,33 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
          </content>
       </ScrollPane>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="42.0" prefWidth="100.0" text="Voltar" />
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Feedbacks:">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="145.0" prefWidth="145.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="42.0" prefWidth="100.0" text="Voltar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="0.0" prefWidth="111.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="910.0" minWidth="10.0" prefWidth="809.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="0.0" prefWidth="142.66666412353516" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="910.0" minWidth="10.0" prefWidth="779.3333358764648" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="0.0" prefWidth="101.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="235.0" minHeight="6.0" prefHeight="65.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="620.0" minHeight="10.0" prefHeight="563.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="235.0" minHeight="6.0" prefHeight="145.66666412353516" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="620.0" minHeight="10.0" prefHeight="485.33333587646484" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
    </rowConstraints>
 </GridPane>

@@ -47,13 +47,22 @@ public class PedidoClienteController implements Initializable {
 
     public void Voltar() throws IOException {
 
-        TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
+            TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        }
+
+
 
     }
 
     public void Enviar() throws IOException {
-
-        TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+        if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
+            TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+        }
 
     }
 

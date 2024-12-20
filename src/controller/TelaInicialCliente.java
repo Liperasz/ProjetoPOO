@@ -20,5 +20,8 @@ public class TelaInicialCliente extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+        TrocadorTelas.setUsuario(Usuario.CLIENTE);
+        primaryStage.setTitle("Restaurante Camarada Camarão");
+
     }
 }

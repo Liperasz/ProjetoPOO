@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 public class PedidosAtuaisController implements Initializable {
 
+
     @FXML
     private Button jbtnVoltar;
     @FXML
@@ -28,12 +29,21 @@ public class PedidosAtuaisController implements Initializable {
     public void initialize (URL url, ResourceBundle rb) {
 
         scrollPane.setContent(verBox);
+        if (TrocadorTelas.getUsuario() != Usuario.ATENDENTE) {
+            jbtnEstoque.setVisible(false);
+            jbtnNovoPedido.setVisible(false);
+        }
 
     }
 
 
     public void Voltar() throws IOException {
-        TrocadorTelas.TrocarTela("/view/TelaInicialAtendente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
+            TrocadorTelas.TrocarTela("/view/TelaInicialAtendente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        }
+
 
     }
 

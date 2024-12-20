@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.AdmLogadoController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdmLogadoController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="134.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" prefWidth="530.0" />
@@ -14,15 +14,40 @@
     <RowConstraints maxHeight="720.0" minHeight="10.0" prefHeight="720.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="725.0" prefWidth="549.0" GridPane.columnIndex="1">
+      <VBox alignment="CENTER" prefHeight="725.0" prefWidth="549.0" GridPane.columnIndex="1">
          <children>
-            <Button fx:id="jbtnPedido" mnemonicParsing="false" onAction="#AcessarPedidos" prefHeight="50.0" prefWidth="163.0" text="Pedidos" />
-            <Button fx:id="jbtnCardapio" mnemonicParsing="false" onAction="#AcessarCardapio" prefHeight="50.0" prefWidth="163.0" text="Cardapio" />
-            <Button fx:id="jbtnEstoque" mnemonicParsing="false" onAction="#AcessarEstoque" prefHeight="50.0" prefWidth="163.0" text="Estoque" />
-            <Button fx:id="jbtnRelatorio" mnemonicParsing="false" onAction="#AcessarRelatorio" prefHeight="50.0" prefWidth="163.0" text="Relatorios" />
-            <Button fx:id="jbtnFuncionario" mnemonicParsing="false" onAction="#GerenciarFuncionario" prefHeight="50.0" prefWidth="163.0" text="Funcionarios" />
-            <Button fx:id="jbtnSair" mnemonicParsing="false" onAction="#Sair" prefHeight="50.0" prefWidth="163.0" text="Sair" />
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnPedido" mnemonicParsing="false" onAction="#AcessarPedidos" prefHeight="50.0" prefWidth="163.0" text="Pedidos" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnRelatorio" mnemonicParsing="false" onAction="#AcessarRelatorio" prefHeight="50.0" prefWidth="163.0" text="Relatorios" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnEstoque" mnemonicParsing="false" onAction="#AcessarEstoque" prefHeight="50.0" prefWidth="163.0" text="Estoque" textAlignment="CENTER" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnCardapio" mnemonicParsing="false" onAction="#AcessarCardapio" prefHeight="50.0" prefWidth="163.0" text="Cardapio" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnFuncionario" mnemonicParsing="false" onAction="#GerenciarFuncionario" prefHeight="50.0" prefWidth="163.0" text="Funcionarios" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0">
+               <children>
+                  <Button fx:id="jbtnSair" mnemonicParsing="false" onAction="#Sair" prefHeight="50.0" prefWidth="163.0" text="Sair" />
+               </children>
+            </VBox>
          </children>
       </VBox>
+      <VBox alignment="CENTER" prefHeight="98.0" prefWidth="549.0" />
    </children>
 </GridPane>

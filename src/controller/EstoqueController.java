@@ -32,10 +32,14 @@ public class EstoqueController implements Initializable {
     }
 
     public void Voltar() throws IOException {
-        TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnVoltar.getScene().getWindow());
 
-
+        if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
+            TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        } else {
+            TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        }
     }
+
 
     public void Concluir() throws IOException {
 

@@ -16,5 +16,7 @@ public class TelaInicialAdm extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+        TrocadorTelas.setUsuario(Usuario.ADMINISTRADOR);
+        primaryStage.setTitle("Restaurante Camarada Camarão");
     }
 }

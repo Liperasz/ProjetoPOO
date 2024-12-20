@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.HistoricoClienteController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricoClienteController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="338.0" minWidth="10.0" prefWidth="82.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="727.0" minWidth="10.0" prefWidth="727.0" />
@@ -18,11 +18,15 @@
   </rowConstraints>
    <children>
       <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="54.0" prefWidth="68.0" text="Voltar" />
-      <Label text="Seu Histórico de pedidos!" GridPane.columnIndex="1">
+      <Label text="Seu Histórico de pedidos:" GridPane.columnIndex="1">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="31.0" prefWidth="59.0" text="Voltar" />
+         </children>
+      </VBox>
    </children>
 </GridPane>

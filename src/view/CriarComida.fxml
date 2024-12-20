@@ -19,7 +19,7 @@
           <RowConstraints maxHeight="405.0" minHeight="0.0" prefHeight="360.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="439.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ScrollPane fx:id="scrollPane" prefHeight="371.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Criar comida:" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="32.0" />
@@ -44,6 +44,7 @@
                               <TextField fx:id="jtfNome" />
                            </children>
                         </VBox>
+                        <VBox prefHeight="100.0" prefWidth="31.0" />
                         <VBox prefHeight="100.0" prefWidth="112.0">
                            <children>
                               <Label text="Valor:">
@@ -54,17 +55,21 @@
                               <TextField fx:id="jtfValor" />
                            </children>
                         </VBox>
+                        <VBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="31.0" />
                         <Label text="Descrição:">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="jtfDescricao" prefHeight="90.0" prefWidth="400.0" />
+                        <TextField fx:id="jtfDescricao" alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="304.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir" />
+                        <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                </children>

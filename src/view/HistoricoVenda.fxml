@@ -5,28 +5,40 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.HistoricoVendaController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HistoricoVendaController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="96.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="928.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="142.00000762939453" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="808.9999923706055" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="116.33331298828125" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="665.0" minHeight="10.0" prefHeight="665.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="99.33333587646484" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="38.666664123535156" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="36.99999237060547" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="531.3333587646484" minHeight="10.0" prefHeight="531.3333587646484" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="665.0" minHeight="10.0" prefHeight="74.66664123535156" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="92.0" text="Voltar" />
-      <ScrollPane fx:id="scrollpane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <ScrollPane fx:id="scrollpane" prefHeight="178.0" prefWidth="853.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label text="Pesquisar por:">
+            <Label text="Filtros:">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="jcbFiltro" prefWidth="150.0" />
             <TextField fx:id="jtfPesquisa" prefHeight="31.0" prefWidth="222.0" />
+            <ChoiceBox fx:id="jcbFiltro" prefWidth="150.0" />
          </children>
       </HBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="92.0" text="Voltar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </GridPane>

@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public abstract class TrocadorTelas {
 
+    private static Usuario usuario;
+
     private TrocadorTelas() {}
 
     public static void TrocarTela(String caminho, Stage fecha) throws IOException {
@@ -17,6 +19,15 @@ public abstract class TrocadorTelas {
         Scene scene = new Scene(trocar);
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setTitle("Restaurante Camarada Camarão");
         stage.show();
+    }
+
+    public static Usuario getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        TrocadorTelas.usuario = usuario;
     }
 }

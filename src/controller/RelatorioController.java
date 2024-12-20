@@ -39,7 +39,7 @@ public class RelatorioController implements Initializable {
     }
 
     public void Voltar() throws IOException {
-        TrocadorTelas.TrocarTela("/view/PedidoCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
 
     }
 
@@ -48,7 +48,8 @@ public class RelatorioController implements Initializable {
 
     }
 
-    public void AcessarFeedback() {
+    public void AcessarFeedback() throws IOException {
+        TrocadorTelas.TrocarTela("/view/Feedback.fxml", (Stage) jbtnFeedback.getScene().getWindow());
 
     }
 }

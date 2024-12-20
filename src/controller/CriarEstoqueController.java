@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -18,7 +19,7 @@ import java.util.ResourceBundle;
 public class CriarEstoqueController implements Initializable {
 
     @FXML
-    private TextField jtfIngrediente;
+    private ChoiceBox<String> jcbEscolherIngrediente;
     @FXML
     private TextField jtfQuantidade;
     @FXML
@@ -26,7 +27,7 @@ public class CriarEstoqueController implements Initializable {
     @FXML
     private TextField jtfLote;
     @FXML
-    private Button jbtnRegistrarIngrediente;
+    private Button jbtnAddIngrediente;
     @FXML
     private Button jbtnConcluir;
     @FXML
@@ -42,7 +43,7 @@ public class CriarEstoqueController implements Initializable {
 
     }
 
-    public void AcessarRegistroIngrediente() {
+    public void AdicionarIngrediente() {
         VBox layout = new VBox();
         Label Nome = new Label("Nome do Ingrediente: ");
         TextField NomeIngrediente = new TextField();

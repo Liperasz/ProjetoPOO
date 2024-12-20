@@ -1,66 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaInicialClienteController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints maxHeight="546.0" minHeight="10.0" prefHeight="546.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1028.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <GridPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="524.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Algum comentário? Avalie o Restaurante:">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-            </Text>
-            <TextField fx:id="jtfComentario" prefHeight="91.0" prefWidth="463.0" />
-            <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#EnviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
-         <children>
-            <HBox prefHeight="272.0" prefWidth="512.0">
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Algum comentário? Avalie o Restaurante:">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
                   </Text>
-                  <Button fx:id="jbtnLogin" mnemonicParsing="false" onAction="#AcessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
+                  <TextField fx:id="jtfComentario" prefHeight="91.0" prefWidth="463.0" />
+                  <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#EnviarComentario" prefHeight="35.0" prefWidth="87.0" text="Enviar">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Button>
                </children>
-            </HBox>
-            <HBox prefHeight="278.0" prefWidth="512.0">
+            </VBox>
+            <VBox prefHeight="135.0" prefWidth="338.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se Agora!">
-                     <font>
-                        <Font name="Arial" size="24.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#AcessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="272.0" prefWidth="512.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="jbtnLogin" mnemonicParsing="false" onAction="#AcessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="278.0" prefWidth="512.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se Agora!">
+                           <font>
+                              <Font name="Arial" size="24.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#AcessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
+            <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
-      </VBox>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.33331298828125" minWidth="0.0" prefWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="683.0" minWidth="10.0" prefWidth="372.3333435058594" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="546.0" minHeight="10.0" prefHeight="181.3333282470703" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="546.0" minHeight="10.0" prefHeight="109.00000762939453" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="573.3333435058594" minHeight="10.0" prefHeight="361.99999237060547" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="573.3333435058594" minHeight="10.0" prefHeight="156.66668701171875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="218.33331298828125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+      <ImageView fx:id="imagem" fitHeight="329.0" fitWidth="315.0" layoutX="638.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../utils/imagens/lulamoluscochora.png" />
+         </image>
+      </ImageView>
    </children>
-</GridPane>
+</Pane>

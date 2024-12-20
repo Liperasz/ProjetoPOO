@@ -20,7 +20,7 @@
         </rowConstraints>
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="473.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionarios:" GridPane.columnIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionários:" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="32.0" />
                </font>
@@ -37,7 +37,10 @@
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="jbtnCadastrarFuncionario" mnemonicParsing="false" onAction="#AcessarCadastrarFuncionario" prefHeight="31.0" prefWidth="180.0" text="Cadastrar Funcionario" />
+                  <Button fx:id="jbtnCadastrarFuncionario" mnemonicParsing="false" onAction="#AcessarCadastrarFuncionario" prefHeight="31.0" prefWidth="180.0" text="Cadastrar Funcionario">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>

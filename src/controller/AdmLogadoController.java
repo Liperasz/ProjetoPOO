@@ -29,6 +29,7 @@ public class AdmLogadoController implements Initializable {
 
     }
 
+
     public void AcessarPedidos() throws IOException {
         TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnPedido.getScene().getWindow());
 
@@ -44,13 +45,13 @@ public class AdmLogadoController implements Initializable {
 
     }
 
-    public void AcessarRelatorio() {
-        //TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnRelatorio.getScene().getWindow());
+    public void AcessarRelatorio() throws IOException {
+        TrocadorTelas.TrocarTela("/view/Relatorio.fxml", (Stage) jbtnRelatorio.getScene().getWindow());
 
     }
 
-    public void GerenciarFuncionario() {
-        //TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnFuncionario.getScene().getWindow());
+    public void GerenciarFuncionario() throws IOException {
+        TrocadorTelas.TrocarTela("/view/Funcionario.fxml", (Stage) jbtnFuncionario.getScene().getWindow());
 
     }
 

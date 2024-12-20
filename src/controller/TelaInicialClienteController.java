@@ -39,7 +39,7 @@ public class TelaInicialClienteController implements Initializable {
     }
     public void AcessarCadastro() throws IOException {
 
-        TrocadorTelas.TrocarTela("/view/CadastrarCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+        TrocadorTelas.TrocarTela("/view/Cadastrar.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
 
     }
 

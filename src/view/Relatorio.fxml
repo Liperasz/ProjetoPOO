@@ -7,7 +7,7 @@
 
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RelatorioController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <Label text="Alimentos mais vendidos no mês">
                <font>
@@ -17,7 +17,7 @@
             <ListView fx:id="jlvMaisVendaMes" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
             <Label text="Alimentos mais vendidos no ano">
                <font>
@@ -27,8 +27,11 @@
             <ListView fx:id="jlvMaisVendaAno" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="37.0" prefWidth="92.0" text="Voltar" />
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="37.0" prefWidth="92.0" text="Voltar" GridPane.columnIndex="1">
+         <font>
+            <Font size="17.0" />
+         </font></Button>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
             <Label text="Alimentos menos vendidos no mês">
                <font>
@@ -38,7 +41,7 @@
             <ListView fx:id="jlvMnVendaMes" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <children>
             <Label text="Alimentos menos vendidos no ano">
                <font>
@@ -48,7 +51,7 @@
             <ListView fx:id="jlvMnVendaAno" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
             <HBox fx:id="jhbMes" prefHeight="51.0" prefWidth="512.0">
                <children>
@@ -66,7 +69,7 @@
             </Button>
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
             <HBox fx:id="jhbAno" prefHeight="50.0" prefWidth="512.0">
                <children>
@@ -86,8 +89,10 @@
       </VBox>
    </children>
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="335.3333435058594" minWidth="0.0" prefWidth="59.000000953674316" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="683.0" minWidth="10.0" prefWidth="472.9999990463257" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="443.33331298828125" minWidth="10.0" prefWidth="443.33331298828125" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.33331298828125" minWidth="10.0" prefWidth="32.33331298828125" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />

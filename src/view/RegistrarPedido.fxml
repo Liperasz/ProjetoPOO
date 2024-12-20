@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -18,15 +19,30 @@
    <children>
       <VBox prefHeight="149.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label text="Cliente" />
+            <Label text="Cliente">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
             <TextField fx:id="jtfCliente" />
-            <Label text="Valor" />
-            <TextField fx:id="jtfValor" />
-            <Label text="Pedidos" />
-            <Button fx:id="jbtnEscolherPedidos" mnemonicParsing="false" onAction="#EscolherPedido" text="Escolher Pedido" />
+            <Label text="Pedidos">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Button fx:id="jbtnEscolherPedidos" mnemonicParsing="false" onAction="#EscolherPedido" prefHeight="34.0" prefWidth="115.0" text="Escolher Pedido">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" />
       <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#CadastrarPedido" text="Cadastrar Pedido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </GridPane>

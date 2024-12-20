@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastrarController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="90.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="10.0" prefWidth="281.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="163.33331298828125" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="307.66668701171875" minWidth="10.0" prefWidth="307.66668701171875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.0" minWidth="10.0" prefWidth="97.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="95.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="423.0" minHeight="10.0" prefHeight="257.6666564941406" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="275.3333435058594" minHeight="9.0" prefHeight="275.3333435058594" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+         <children>
+            <Label text="Nome">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="jtfNome" />
+            <Label text="Email">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="jtfEmail" />
+            <Label text="Senha">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="jpfSenha" />
+         </children>
+      </VBox>
+      <VBox prefHeight="423.0" prefWidth="337.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Label text="Data de Nascimento">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <HBox prefHeight="32.0" prefWidth="302.0">
+               <children>
+                  <TextField fx:id="jtfDN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfMN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfAN" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" />
+               </children>
+            </HBox>
+            <Label text="Telefone/Celular">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <TextField fx:id="jtfCelular" />
+            <Label text="CPF">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <TextField fx:id="jtfCPF" />
+            <Label text="Sexo">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <ChoiceBox fx:id="jcbSexo" prefWidth="150.0" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="40.0" prefWidth="61.0" text="Voltar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <VBox alignment="BOTTOM_CENTER" prefHeight="288.0" prefWidth="185.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#CadastrarCliente" prefHeight="42.0" prefWidth="98.0" text="Cadastrar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</GridPane>

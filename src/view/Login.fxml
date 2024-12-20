@@ -21,11 +21,15 @@
           <RowConstraints maxHeight="234.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
-               <font>
-                  <Font name="Arial" size="16.0" />
-               </font>
-            </Button>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:">
@@ -40,6 +44,7 @@
                      </font>
                   </Text>
                   <PasswordField fx:id="jtfSenha" prefHeight="25.0" prefWidth="174.0" />
+                  <VBox prefHeight="33.0" prefWidth="446.0" />
                   <Button fx:id="jbtnLogin" mnemonicParsing="false" onAction="#Logar" prefHeight="32.0" prefWidth="88.0" text="Login">
                      <font>
                         <Font name="Arial" size="16.0" />

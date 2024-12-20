@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -17,7 +18,7 @@
     <RowConstraints maxHeight="128.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="258.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <VBox alignment="CENTER" prefHeight="258.0" prefWidth="231.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <ImageView fx:id="jimgPix" fitHeight="367.0" fitWidth="633.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,11 +27,26 @@
             </ImageView>
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" />
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Label text="Valor a Pagar" />
-            <TextField fx:id="jtfValor" onAction="#setValor" />
+            <Label text="Valor a Pagar: ">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="valor" text="0,0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="33.0" prefWidth="65.0" text="Voltar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
    </children>

@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,11 +28,13 @@ public class FuncionarioController implements Initializable {
     }
 
 
-    public void Voltar() {
+    public void Voltar() throws IOException {
+        TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
 
     }
 
-    public void AcessarCadastrarFuncionario() {
+    public void AcessarCadastrarFuncionario() throws IOException {
+        TrocadorTelas.TrocarTela("/view/Cadastrar.fxml", (Stage) jbtnCadastrarFuncionario.getScene().getWindow());
 
     }
 
