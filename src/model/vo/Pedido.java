@@ -9,6 +9,7 @@ public class Pedido {
     private Atendente funcionario;
     private boolean entregue;
     private List<Comida> pedidos;
+    private boolean pago;
 
 
     public Pedido(double valor, Cliente cliente, Atendente funcionario, List<Comida> pedidos) {
@@ -16,6 +17,8 @@ public class Pedido {
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.pedidos = pedidos;
+        this.entregue = false;
+        this.pago = false;
     }
 
     public double getValor() {
@@ -32,6 +35,10 @@ public class Pedido {
 
     public Atendente getFuncionario() {
         return funcionario;
+    }
+
+    public boolean isPago() {
+        return pago;
     }
 
     public Cliente getCliente() {

@@ -19,14 +19,14 @@
       <VBox prefHeight="149.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
             <Label text="Cliente" />
-            <TextField fx:id="jtfCliente" />
+            <TextField fx:id="jtfCliente" onAction="#getCliente" />
             <Label text="Valor" />
-            <TextField fx:id="jtfValor" />
+            <TextField fx:id="jtfValor" onAction="#getValor" />
             <Label text="Pedidos" />
-            <Button fx:id="jbtnEscolherPedidos" mnemonicParsing="false" text="Escolher Pedidos" />
+            <Button fx:id="jbtnEscolherPedidos" mnemonicParsing="false" onAction="#EscolherPedido" text="Escolher Pedido" />
          </children>
       </VBox>
-      <Button fx:id="jbtnVoltar" mnemonicParsing="false" text="Voltar" />
-      <Button fx:id="jbtnCadastrar" mnemonicParsing="false" text="Cadastrar Pedido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" text="Voltar" />
+      <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#CadastrarPedido" text="Cadastrar Pedido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
 </GridPane>
