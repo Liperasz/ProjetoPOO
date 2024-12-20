@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1028.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.AdmLogadoController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="10.0" prefWidth="134.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="549.0" minWidth="10.0" prefWidth="530.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="239.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="720.0" minHeight="10.0" prefHeight="720.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="725.0" prefWidth="549.0" GridPane.columnIndex="1">
+         <children>
+            <Button fx:id="jbtnPedido" mnemonicParsing="false" onAction="#AcessarPedidos" prefHeight="50.0" prefWidth="163.0" text="Pedidos" />
+            <Button fx:id="jbtnCardapio" mnemonicParsing="false" onAction="#AcessarCardapio" prefHeight="50.0" prefWidth="163.0" text="Cardapio" />
+            <Button fx:id="jbtnEstoque" mnemonicParsing="false" onAction="#AcessarEstoque" prefHeight="50.0" prefWidth="163.0" text="Estoque" />
+            <Button fx:id="jbtnRelatorio" mnemonicParsing="false" onAction="#AcessarRelatorio" prefHeight="50.0" prefWidth="163.0" text="Relatorios" />
+            <Button fx:id="jbtnFuncionario" mnemonicParsing="false" onAction="#GerenciarFuncionario" prefHeight="50.0" prefWidth="163.0" text="Funcionarios" />
+            <Button fx:id="jbtnSair" mnemonicParsing="false" onAction="#Sair" prefHeight="50.0" prefWidth="163.0" text="Sair" />
+         </children>
+      </VBox>
+   </children>
+</GridPane>

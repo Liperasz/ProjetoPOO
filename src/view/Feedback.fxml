@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FeedbackController">
+   <children>
+      <ScrollPane fx:id="scrollpane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="42.0" prefWidth="100.0" text="Voltar" />
+   </children>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.0" minWidth="0.0" prefWidth="111.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="910.0" minWidth="10.0" prefWidth="809.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="0.0" prefWidth="101.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="235.0" minHeight="6.0" prefHeight="65.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="620.0" minHeight="10.0" prefHeight="563.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="89.0" minHeight="10.0" prefHeight="89.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+</GridPane>

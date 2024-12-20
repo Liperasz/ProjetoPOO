@@ -4,7 +4,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CadastarClienteController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CadastrarController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="90.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="10.0" prefWidth="264.0" />
@@ -34,17 +34,17 @@
             <Label text="Data de Nascimento" />
             <HBox prefHeight="51.0" prefWidth="266.0">
                <children>
-                  <TextField fx:id="jtfDN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
-                  <TextField fx:id="jtfMN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" prefHeight="30.0" prefWidth="45.0" />
-                  <TextField fx:id="jtfAN" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" />
+                  <TextField fx:id="jtfDN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" onAction="#DiaNascimento" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfMN" maxHeight="30.0" maxWidth="45.0" minHeight="30.0" minWidth="45.0" onAction="#MesNascimento" prefHeight="30.0" prefWidth="45.0" />
+                  <TextField fx:id="jtfAN" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" onAction="#AnoNascimento" prefHeight="30.0" prefWidth="80.0" />
                </children>
             </HBox>
             <Label text="Telefone/Celular" />
-            <TextField fx:id="jtfCelular" />
+            <TextField fx:id="jtfCelular" onAction="#getTelefone" />
             <Label text="CPF" />
-            <TextField fx:id="jtfCPF" />
+            <TextField fx:id="jtfCPF" onAction="#getCPF" />
             <Label text="Sexo" />
-            <ChoiceBox fx:id="jcbSexo" prefWidth="150.0" />
+            <ChoiceBox fx:id="jcbSexo" onDragDetected="#setSexo" prefWidth="150.0" />
          </children>
       </VBox>
       <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#CadastrarCliente" text="Cadastrar" GridPane.columnIndex="2" GridPane.rowIndex="2" />

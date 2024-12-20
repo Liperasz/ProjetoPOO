@@ -1,50 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TelaInicialController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaInicialClienteController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="546.0" minHeight="10.0" prefHeight="546.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="214.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Button fx:id="jbtnCardapio" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#acessarCardapio" prefHeight="32.0" prefWidth="88.0" text="Cardápio">
-         <font>
-            <Font name="Arial" size="16.0" />
-         </font>
-      </Button>
-      <Separator layoutX="57.0" layoutY="380.0" prefHeight="79.0" prefWidth="353.0" />
-      <TextField fx:id="jtfComentario" layoutX="25.0" layoutY="215.0" prefHeight="91.0" prefWidth="463.0" />
-      <Button fx:id="jbtnEnviar" layoutX="50.0" layoutY="336.0" mnemonicParsing="false" onAction="#enviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
-         <font>
-            <Font name="Arial" size="16.0" />
-         </font>
-      </Button>
-      <Text layoutX="25.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deixe seu comentário sobre a refeiçaõ aqui">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Text>
-      <Text layoutX="56.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Text>
-      <Button fx:id="jbtnLogin" layoutX="283.0" layoutY="486.0" mnemonicParsing="false" onAction="#acessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
-         <font>
-            <Font name="Arial" size="16.0" />
-         </font>
-      </Button>
-      <Text layoutX="50.0" layoutY="580.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se Agora!">
-         <font>
-            <Font name="Arial" size="24.0" />
-         </font>
-      </Text>
-      <Button fx:id="jbtnCadastrar" layoutX="277.0" layoutY="555.0" mnemonicParsing="false" onAction="#acessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
-         <font>
-            <Font name="Arial" size="16.0" />
-         </font>
-      </Button>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Algum comentário? Avalie o Restaurante:">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="jtfComentario" prefHeight="91.0" prefWidth="463.0" />
+            <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#EnviarComentario" prefHeight="31.0" prefWidth="80.0" text="Enviar">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <children>
+            <HBox prefHeight="272.0" prefWidth="512.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Já possui conta?">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="jbtnLogin" mnemonicParsing="false" onAction="#AcessarLogin" prefHeight="31.0" prefWidth="80.0" text="Login">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox prefHeight="278.0" prefWidth="512.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registre-se Agora!">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="jbtnCadastrar" mnemonicParsing="false" onAction="#AcessarCadastro" prefHeight="32.0" prefWidth="91.0" text="Cadastro">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
-</Pane>
+</GridPane>

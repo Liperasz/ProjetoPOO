@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RelatorioController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+         <children>
+            <Label text="Alimentos mais vendidos no mês">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="jlvMaisVendaMes" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label text="Alimentos mais vendidos no ano">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="jlvMaisVendaAno" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="37.0" prefWidth="92.0" text="Voltar" />
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+         <children>
+            <Label text="Alimentos menos vendidos no mês">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="jlvMnVendaMes" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Label text="Alimentos menos vendidos no ano">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="jlvMnVendaAno" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+         <children>
+            <HBox fx:id="jhbMes" prefHeight="51.0" prefWidth="512.0">
+               <children>
+                  <Label text="Ganhos do mês:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button fx:id="jbtnFeedback" mnemonicParsing="false" onAction="#AcessarFeedback" prefHeight="25.0" prefWidth="276.0" text="FeedBacks">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+            <HBox fx:id="jhbAno" prefHeight="50.0" prefWidth="512.0">
+               <children>
+                  <Label text="Ganhos do ano:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button fx:id="jbtnHistoricoVenda" mnemonicParsing="false" onAction="#AcessarHistoricoVenda" prefHeight="25.0" prefWidth="276.0" text="Histórico de vendas">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="55.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="585.0" minHeight="10.0" prefHeight="236.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="503.0" minHeight="10.0" prefHeight="238.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="428.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+</GridPane>

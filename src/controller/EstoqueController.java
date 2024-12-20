@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EstoqueAtendenteController implements Initializable {
+public class EstoqueController implements Initializable {
 
     @FXML
     private Button jbtnVoltar;
@@ -20,7 +20,7 @@ public class EstoqueAtendenteController implements Initializable {
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private Button jbtnAddIngrediente;
+    private Button jbtnCriarEstoque;
 
     private VBox verBox = new VBox();
 
@@ -41,7 +41,8 @@ public class EstoqueAtendenteController implements Initializable {
 
     }
 
-    public void AdicionarIngrediente() throws IOException {
+    public void CriarEstoque() throws IOException {
+        TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) jbtnCriarEstoque.getScene().getWindow());
 
     }
 

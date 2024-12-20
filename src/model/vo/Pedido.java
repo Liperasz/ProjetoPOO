@@ -1,5 +1,6 @@
 package model.vo;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Pedido {
@@ -10,15 +11,16 @@ public class Pedido {
     private boolean entregue;
     private List<Comida> pedidos;
     private boolean pago;
+    private LocalDateTime momentopedido;
 
-
-    public Pedido(double valor, Cliente cliente, Atendente funcionario, List<Comida> pedidos) {
+    public Pedido(double valor, Cliente cliente, Atendente funcionario, List<Comida> pedidos, LocalDateTime momentopedido, Boolean entregue, boolean pago) {
         this.valor = valor;
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.pedidos = pedidos;
-        this.entregue = false;
-        this.pago = false;
+        this.entregue = entregue;
+        this.pago = pago;
+        this.momentopedido = LocalDateTime.now();
     }
 
     public double getValor() {
@@ -35,6 +37,10 @@ public class Pedido {
 
     public Atendente getFuncionario() {
         return funcionario;
+    }
+
+    public LocalDateTime getMomentopedido() {
+        return momentopedido;
     }
 
     public boolean isPago() {

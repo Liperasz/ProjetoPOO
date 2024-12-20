@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controller.HistoricoVendaController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="96.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="988.0" minWidth="10.0" prefWidth="928.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="355.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="665.0" minHeight="10.0" prefHeight="665.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="41.0" prefWidth="92.0" text="Voltar" />
+      <ScrollPane fx:id="scrollpane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label text="Pesquisar por:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="jcbFiltro" prefWidth="150.0" />
+            <TextField fx:id="jtfPesquisa" prefHeight="31.0" prefWidth="222.0" />
+         </children>
+      </HBox>
+   </children>
+</GridPane>

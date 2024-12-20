@@ -1,7 +1,5 @@
-package view;
+package controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,12 +42,5 @@ public class RegistrarPedidoController implements Initializable {
 
     }
 
-    public void getCliente() {
 
-    }
-
-    @FXML
-    public void getValor() {
-
-    }
 }

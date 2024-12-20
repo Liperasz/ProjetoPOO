@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PedidosAtuaisController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FuncionarioController">
    <children>
       <GridPane layoutX="6.0" layoutY="6.0" prefHeight="760.0" prefWidth="1024.0">
         <columnConstraints>
@@ -20,7 +20,7 @@
         </rowConstraints>
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="473.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos Atuais:" GridPane.columnIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Funcionarios:" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="32.0" />
                </font>
@@ -32,12 +32,12 @@
             </Button>
             <HBox prefHeight="247.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="jbtnNovoPedido" mnemonicParsing="false" onAction="#NovoPedido" prefHeight="32.0" prefWidth="143.0" text="Novo Pedido">
+                  <Button fx:id="jbtnSalvar" mnemonicParsing="false" onAction="#Salvar" prefHeight="32.0" prefWidth="171.0" text="Salvar alterações">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="jbtnEstoque" mnemonicParsing="false" onAction="#AcessarEstoque" prefHeight="31.0" prefWidth="144.0" text="Estoque" />
+                  <Button fx:id="jbtnCadastrarFuncionario" mnemonicParsing="false" onAction="#AcessarCadastrarFuncionario" prefHeight="31.0" prefWidth="180.0" text="Cadastrar Funcionario" />
                </children>
             </HBox>
          </children>

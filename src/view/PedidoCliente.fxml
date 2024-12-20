@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PedidoClienteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PedidoClienteController">
    <children>
       <GridPane layoutX="6.0" layoutY="6.0" prefHeight="760.0" prefWidth="1024.0">
         <columnConstraints>
@@ -20,7 +20,7 @@
         </rowConstraints>
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="304.0" prefWidth="903.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#enviar" prefHeight="32.0" prefWidth="88.0" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#Enviar" prefHeight="32.0" prefWidth="88.0" text="Enviar" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
@@ -30,7 +30,7 @@
                   <Font name="Arial" size="32.0" />
                </font>
             </Text>
-            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

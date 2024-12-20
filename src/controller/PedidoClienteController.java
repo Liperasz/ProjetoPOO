@@ -1,4 +1,4 @@
-package view;
+package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -45,13 +45,13 @@ public class PedidoClienteController implements Initializable {
 
     }
 
-    public void voltar() throws IOException {
+    public void Voltar() throws IOException {
 
         TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
 
     }
 
-    public void enviar() throws IOException {
+    public void Enviar() throws IOException {
 
         TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
 
@@ -67,6 +67,7 @@ public class PedidoClienteController implements Initializable {
 
         Label nome = new Label(comida.getNome() + " : ");
         Label desc = new Label(comida.getDescricao());
+        Label preco = new Label(String.valueOf(comida.getPreco()));
         Button adicionar = new Button("Adicionar");
         Button remover = new Button("Remover");
 
@@ -74,7 +75,7 @@ public class PedidoClienteController implements Initializable {
         Label quant = new Label("Quantidade: 0");
 
         verBox.getChildren().add(horBox);
-        horBox.getChildren().addAll(nome, desc, adicionar, remover, quant);
+        horBox.getChildren().addAll(nome, desc, preco, adicionar, remover, quant);
 
         adicionar.setOnAction(e -> {
 

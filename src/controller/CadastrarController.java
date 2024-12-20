@@ -1,11 +1,6 @@
-package view;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+package controller;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -16,7 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CadastarClienteController implements Initializable {
+public class CadastrarController implements Initializable {
 
     @FXML
     private TextField jtfNome;
@@ -53,11 +48,31 @@ public class CadastarClienteController implements Initializable {
     }
 
     public void CadastrarCliente() throws IOException {
+
         TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
     }
 
+    public void DiaNascimento() throws IOException {
 
+    }
 
+    public void MesNascimento() throws IOException {
 
+    }
 
+    public void AnoNascimento() throws IOException {
+
+    }
+
+    public void getTelefone() {
+
+    }
+
+    public void getCPF() throws IOException {
+
+    }
+
+    public void setSexo() throws IOException {
+
+    }
 }

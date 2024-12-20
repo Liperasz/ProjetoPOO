@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PedidosAtuaisController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CardapioController">
    <children>
       <GridPane layoutX="6.0" layoutY="6.0" prefHeight="760.0" prefWidth="1024.0">
         <columnConstraints>
@@ -15,29 +15,25 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="137.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="648.0" minHeight="10.0" prefHeight="473.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="331.0" minHeight="0.0" prefHeight="220.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="648.0" minHeight="10.0" prefHeight="510.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="331.0" minHeight="0.0" prefHeight="177.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="473.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pedidos Atuais:" GridPane.columnIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cardapio:" GridPane.columnIndex="1">
                <font>
                   <Font name="Arial" size="32.0" />
                </font>
             </Text>
-            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="32.0" prefWidth="88.0" text="Voltar">
+            <Button fx:id="jbtnVoltar" mnemonicParsing="false" onAction="#Voltar" prefHeight="39.0" prefWidth="88.0" text="Voltar">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>
             </Button>
-            <HBox prefHeight="247.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="jbtnNovoPedido" mnemonicParsing="false" onAction="#NovoPedido" prefHeight="32.0" prefWidth="143.0" text="Novo Pedido">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="jbtnEstoque" mnemonicParsing="false" onAction="#AcessarEstoque" prefHeight="31.0" prefWidth="144.0" text="Estoque" />
+                  <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir" />
+                  <Button fx:id="jbtnCriarComida" mnemonicParsing="false" onAction="#CriarComida" prefHeight="57.0" prefWidth="175.0" text="Criar Comida" />
                </children>
             </HBox>
          </children>

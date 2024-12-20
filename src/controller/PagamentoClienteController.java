@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -26,7 +26,11 @@ public class PagamentoClienteController implements Initializable {
 
     public void Voltar() throws IOException {
 
-        TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+        TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+
+    }
+
+    public void setValor() {
 
     }
 

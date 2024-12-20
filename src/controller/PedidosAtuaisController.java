@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,7 +43,7 @@ public class PedidosAtuaisController implements Initializable {
     }
 
     public void AcessarEstoque() throws IOException {
-        TrocadorTelas.TrocarTela("/view/EstoqueAtendente.fxml", (Stage) jbtnEstoque.getScene().getWindow());
+        TrocadorTelas.TrocarTela("/view/Estoque.fxml", (Stage) jbtnEstoque.getScene().getWindow());
 
     }
 

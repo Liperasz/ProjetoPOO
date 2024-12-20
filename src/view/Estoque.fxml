@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EstoqueAtendenteController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EstoqueController">
    <children>
       <GridPane layoutX="6.0" layoutY="6.0" prefHeight="760.0" prefWidth="1024.0">
         <columnConstraints>
@@ -33,7 +33,7 @@
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir" />
-                  <Button fx:id="jbtnAddIngrediente" mnemonicParsing="false" onAction="#AdicionarIngrediente" prefHeight="57.0" prefWidth="175.0" text="Adicionar Ingrediente" />
+                  <Button fx:id="jbtnCriarEstoque" mnemonicParsing="false" onAction="#CriarEstoque" prefHeight="57.0" prefWidth="175.0" text="Criar Estoque" />
                </children>
             </HBox>
          </children>
