@@ -48,6 +48,7 @@ public class ClienteDAO {
 
         PreparedStatement stmt;
         stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, cliente.getCpf());
 
         ResultSet rs = stmt.executeQuery();
         boolean existe = rs.next();

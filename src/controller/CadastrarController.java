@@ -15,7 +15,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import lib.MaskedTextField;
 
 public class CadastrarController implements Initializable {
 
@@ -92,20 +91,15 @@ public class CadastrarController implements Initializable {
 
             if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
 
-                System.out.println("Enviando para clienteBO");
+                TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
 
-                Cliente cliente = new Cliente(jtfNome.getText(), LocalDate.of(Integer.parseInt(jtfDN.getText(6, 9)), Integer.parseInt(jtfDN.getText(3, 4)),
-                        Integer.parseInt(jtfDN.getText(0, 1))), jtfEmail.getText(), jcbSexo.getValue(), jtfCPF.getText(0,2) + jtfCPF.getText(4, 6) + jtfCPF.getText(8, 10) + jtfCPF.getText(12, 13),
-                        jtfCelular.getText(1,2) + jtfCelular.getText(4, 8) + jtfCelular.getText(10, 13),
+
+                Cliente cliente = new Cliente(jtfNome.getText(), LocalDate.of(Integer.parseInt(jtfDN.getText(6, 10)), Integer.parseInt(jtfDN.getText(3, 5)),
+                        Integer.parseInt(jtfDN.getText(0, 2))), jtfEmail.getText(), jcbSexo.getValue(), jtfCPF.getText(0,3) + jtfCPF.getText(4, 7) + jtfCPF.getText(8, 11) + jtfCPF.getText(12, 14),
+                        jtfCelular.getText(1,3) + jtfCelular.getText(4, 9) + jtfCelular.getText(10, 14),
                         jpfSenha.getText());
 
-                System.out.println(cliente.getNascimento() + cliente.getNome());
-
                 ClienteBO.cadastrarCliente(cliente);
-
-                System.out.println("Enviado para clienteBO");
-
-                TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
 
             } else {
 
