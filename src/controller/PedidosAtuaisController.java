@@ -39,7 +39,7 @@ public class PedidosAtuaisController implements Initializable {
 
     public void Voltar() throws IOException {
         if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
-            TrocadorTelas.TrocarTela("/view/TelaInicialAtendente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+            TrocadorTelas.TrocarTela("/view/Login.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         } else {
             TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         }

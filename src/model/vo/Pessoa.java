@@ -42,6 +42,10 @@ public abstract class Pessoa {
         return sexo;
     }
 
+    public String getSexoString() {
+        return sexo.toString();
+    }
+
     public String getEmail() {
         return email;
     }

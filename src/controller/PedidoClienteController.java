@@ -54,7 +54,7 @@ public class PedidoClienteController implements Initializable {
         }
     }
 
-    public void Enviar(int quant) throws IOException {
+    public void Enviar() throws IOException {
         if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
             TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnEnviar.getScene().getWindow());
         } else {

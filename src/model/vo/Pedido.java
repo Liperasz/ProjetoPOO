@@ -20,7 +20,7 @@ public class Pedido {
         this.pedidos = pedidos;
         this.entregue = entregue;
         this.pago = pago;
-        this.momentopedido = LocalDateTime.now();
+        this.momentopedido = momentopedido;
     }
 
     public double getValor() {
