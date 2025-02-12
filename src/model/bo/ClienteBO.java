@@ -1,6 +1,7 @@
 package model.bo;
 
 import lib.CNP;
+import model.dao.AtendenteDAO;
 import model.dao.ClienteDAO;
 import model.dao.ConexionJDBC;
 import model.vo.Cliente;
@@ -43,5 +44,10 @@ public class ClienteBO {
         }
 
 
+    }
+
+    public static boolean loginCliente(String email, String senha) throws SQLException, ClassNotFoundException {
+
+        return ClienteDAO.ClienteLogin(email, senha);
     }
 }

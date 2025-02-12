@@ -59,6 +59,39 @@ public class ClienteDAO {
         return existe;
     }
 
+    public static boolean ClienteLogin(String email, String senha) throws SQLException, ClassNotFoundException {
 
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "select * from cliente where Email_Cliente = ?";
+
+        PreparedStatement stmt;
+        stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, email);
+
+        ResultSet rs = stmt.executeQuery();
+
+        boolean existe = rs.next();
+
+        if (existe) {
+
+            String senha_real = rs.getString("Senha_Cliente");
+
+            if (senha.equals(senha_real)) {
+
+                rs.close();
+                stmt.close();
+                conexao.close();
+                return true;
+            }
+
+        }
+
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+        return false;
+    }
 
 }

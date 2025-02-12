@@ -7,9 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.bo.AdministradorBO;
+import model.bo.AtendenteBO;
+import model.bo.ClienteBO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable { ;
@@ -37,7 +41,7 @@ public class LoginController implements Initializable { ;
         TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnVoltar.getScene().getWindow());
     }
 
-    public void Logar() throws IOException {
+    public void Logar() throws IOException, SQLException, ClassNotFoundException {
 
         if (jtfEmail.getText().isEmpty() || jtfSenha.getText().isEmpty()) {
             AlertaErro();
@@ -45,11 +49,28 @@ public class LoginController implements Initializable { ;
         }
 
         if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
-            TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            if (ClienteBO.loginCliente(jtfEmail.getText(), jtfSenha.getText())) {
+                TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            }
+
+
         } else  if (TrocadorTelas.getUsuario() == Usuario.ADMINISTRADOR) {
-            TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            if (AdministradorBO.loginAdministrador(jtfEmail.getText(), jtfSenha.getText())) {
+                TrocadorTelas.TrocarTela("/view/AdmLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            }
+
         } else {
-            TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            if (AtendenteBO.loginAtendente(jtfEmail.getText(), jtfSenha.getText())) {
+                TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnLogin.getScene().getWindow());
+
+            }
+
+
         }
 
     }

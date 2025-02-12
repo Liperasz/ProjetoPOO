@@ -8,9 +8,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lib.MascarasFX;
+import model.bo.EstoqueBO;
+import model.bo.IngredienteBO;
+import model.dao.IngredienteDAO;
+import model.vo.Estoque;
+import model.vo.Ingrediente;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class CriarEstoqueController implements Initializable {
@@ -32,7 +40,15 @@ public class CriarEstoqueController implements Initializable {
 
     @Override
     public void initialize (URL url, ResourceBundle rb) {
-        jcbEscolherIngrediente.getItems().addAll("eita", "eita 2", "eita 3");
+        try {
+            jcbEscolherIngrediente.getItems().addAll(IngredienteBO.ListarIngrediente());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        MascarasFX.mascaraData(jtfValidade);
     }
 
     public void Voltar() throws IOException {
@@ -55,7 +71,8 @@ public class CriarEstoqueController implements Initializable {
         concluir.setOnAction(e -> {
             try {
                 CriarIngrediente(NomeIngrediente);
-            } catch (IOException ex) {
+                stage.close();
+            } catch (IOException | SQLException | ClassNotFoundException ex) {
                 System.out.println("Erro ao criar ingrediente: " + ex.getMessage());
             }
         });
@@ -63,11 +80,22 @@ public class CriarEstoqueController implements Initializable {
 
     }
 
-    public void ConcluirEstoque() throws IOException {
-        if (jcbEscolherIngrediente.getValue() == null|| jtfLote.getText().isEmpty() || jtfQuantidade.getText().isEmpty()|| jtfValidade.getText().isEmpty()) {
+    public void ConcluirEstoque() throws IOException, SQLException, ClassNotFoundException {
+        if (jcbEscolherIngrediente.getValue() == null|| jtfLote.getText().isEmpty() || jtfQuantidade.getText().isEmpty()|| jtfValidade.getText().isEmpty() ||
+                !jtfValidade.getText().matches("\\d{2}/\\d{2}/\\d{4}")
+        ) {
             AlertaErro();
             throw new IOException("Os campos não foram devidamente preenchidos");
         }
+
+
+        Ingrediente i = new Ingrediente(jcbEscolherIngrediente.getValue());
+        Estoque estoque = new Estoque(i, LocalDate.of(Integer.parseInt(jtfValidade.getText(6, 10)), Integer.parseInt(jtfValidade.getText(3, 5)),
+                Integer.parseInt(jtfValidade.getText(0, 2))), Integer.parseInt(jtfQuantidade.getText()), Integer.parseInt(jtfLote.getText()));
+
+
+        EstoqueBO.CriarEstoque(estoque);
+
     }
     public void AlertaErro() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -76,11 +104,14 @@ public class CriarEstoqueController implements Initializable {
         alert.setContentText("Os campos devem ser preenchidos!");
         alert.showAndWait();
     }
-    public void CriarIngrediente(TextField NomeIngrediente) throws IOException{
+    public void CriarIngrediente(TextField NomeIngrediente) throws IOException, SQLException, ClassNotFoundException {
         if (NomeIngrediente.getText().isEmpty()) {
             AlertaErro();
             throw new IOException("Os campos não foram devidamente preenchidos");
         }
+
+        Ingrediente ingrediente = new Ingrediente(NomeIngrediente.getText());
+        IngredienteBO.CriarIngrediente(ingrediente);
 
     }
 

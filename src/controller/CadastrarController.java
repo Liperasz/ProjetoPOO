@@ -6,10 +6,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lib.MascarasFX;
+import model.bo.AtendenteBO;
 import model.bo.ClienteBO;
 import model.dao.ClienteDAO;
+import model.vo.Atendente;
 import model.vo.Cliente;
 import model.vo.Sexo;
+import model.vo.Status;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -91,9 +95,6 @@ public class CadastrarController implements Initializable {
 
             if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
 
-                TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
-
-
                 Cliente cliente = new Cliente(jtfNome.getText(), LocalDate.of(Integer.parseInt(jtfDN.getText(6, 10)), Integer.parseInt(jtfDN.getText(3, 5)),
                         Integer.parseInt(jtfDN.getText(0, 2))), jtfEmail.getText(), jcbSexo.getValue(), jtfCPF.getText(0,3) + jtfCPF.getText(4, 7) + jtfCPF.getText(8, 11) + jtfCPF.getText(12, 14),
                         jtfCelular.getText(1,3) + jtfCelular.getText(4, 9) + jtfCelular.getText(10, 14),
@@ -101,9 +102,16 @@ public class CadastrarController implements Initializable {
 
                 ClienteBO.cadastrarCliente(cliente);
 
+                TrocadorTelas.TrocarTela("/view/TelaInicialCliente.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
+
             } else {
 
+                Atendente atendente = new Atendente(jtfNome.getText(), LocalDate.of(Integer.parseInt(jtfDN.getText(6, 10)), Integer.parseInt(jtfDN.getText(3, 5)),
+                        Integer.parseInt(jtfDN.getText(0, 2))), jtfEmail.getText(), jcbSexo.getValue(), jtfCPF.getText(0,3) + jtfCPF.getText(4, 7) + jtfCPF.getText(8, 11) + jtfCPF.getText(12, 14),
+                        jtfCelular.getText(1,3) + jtfCelular.getText(4, 9) + jtfCelular.getText(10, 14),
+                        jpfSenha.getText(), Status.ATIVO);
 
+                AtendenteBO.cadastrarAtendente(atendente);
 
                 TrocadorTelas.TrocarTela("/view/Funcionario.fxml", (Stage) jbtnCadastrar.getScene().getWindow());
             }

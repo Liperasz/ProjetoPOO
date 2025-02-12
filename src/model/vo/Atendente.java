@@ -13,5 +13,7 @@ public class Atendente extends Funcionario {
         this.status = status;
     }
 
-
+    public Status getStatus() {
+        return status;
+    }
 }
