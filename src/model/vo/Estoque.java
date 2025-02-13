@@ -25,6 +25,22 @@ public class Estoque {
         return estoqueingrediente;
     }
 
+    public void setEstoqueingrediente(Ingrediente estoqueingrediente) {
+        this.estoqueingrediente = estoqueingrediente;
+    }
+
+    public void setValidade(LocalDate validade) {
+        this.validade = validade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setLote(int lote) {
+        Lote = lote;
+    }
+
     public int getQuantidade() {
         return quantidade;
     }
