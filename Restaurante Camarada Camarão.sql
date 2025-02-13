@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema Restaurante
+-- Schema mydb
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema Restaurante
+-- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Restaurante` DEFAULT CHARACTER SET utf8 ;
-USE `Restaurante` ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Cliente`
+-- Table `mydb`.`Cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Cliente` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Cliente` (
   `ID_Cliente` INT NOT NULL,
   `Nome_Cliente` VARCHAR(45) NULL,
   `Nascimento_Cliente` DATE NULL,
@@ -31,9 +31,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Administrador`
+-- Table `mydb`.`Administrador`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Administrador` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Administrador` (
   `ID_Administrador` INT NOT NULL,
   `Nome_Administrador` VARCHAR(45) NULL,
   `Nascimento_Administrador` DATE NULL,
@@ -47,9 +47,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Atendente`
+-- Table `mydb`.`Atendente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Atendente` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Atendente` (
   `ID_Atendente` INT NOT NULL,
   `Nome_Atendente` VARCHAR(45) NULL,
   `Nascimento_Atendente` DATE NULL,
@@ -64,9 +64,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Ingrediente`
+-- Table `mydb`.`Ingrediente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Ingrediente` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Ingrediente` (
   `ID_Ingrediente` INT NOT NULL,
   `Nome_Ingrediente` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_Ingrediente`))
@@ -74,9 +74,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Estoque`
+-- Table `mydb`.`Estoque`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Estoque` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Estoque` (
   `ID_Estoque` INT NOT NULL,
   `Validade` DATE NULL,
   `Quantidade` INT NULL,
@@ -86,16 +86,16 @@ CREATE TABLE IF NOT EXISTS `Restaurante`.`Estoque` (
   INDEX `fk_Estoque_Ingrediente1_idx` (`Ingrediente_ID_Ingrediente` ASC) VISIBLE,
   CONSTRAINT `fk_Estoque_Ingrediente1`
     FOREIGN KEY (`Ingrediente_ID_Ingrediente`)
-    REFERENCES `Restaurante`.`Ingrediente` (`ID_Ingrediente`)
+    REFERENCES `mydb`.`Ingrediente` (`ID_Ingrediente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Comida`
+-- Table `mydb`.`Comida`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Comida` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Comida` (
   `ID_Comida` INT NOT NULL,
   `Preco` DOUBLE NULL,
   `Descricao` VARCHAR(150) NULL,
@@ -104,9 +104,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Pedido`
+-- Table `mydb`.`Pedido`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Pedido` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Pedido` (
   `ID_Pedido` INT NOT NULL,
   `Valor` DOUBLE NULL,
   `Entregue` TINYINT NULL,
@@ -119,21 +119,21 @@ CREATE TABLE IF NOT EXISTS `Restaurante`.`Pedido` (
   INDEX `fk_Pedido_Atendente1_idx` (`Atendente_ID_Atendente` ASC) VISIBLE,
   CONSTRAINT `fk_Pedido_Cliente`
     FOREIGN KEY (`Cliente_ID_Cliente`)
-    REFERENCES `Restaurante`.`Cliente` (`ID_Cliente`)
+    REFERENCES `mydb`.`Cliente` (`ID_Cliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pedido_Atendente1`
     FOREIGN KEY (`Atendente_ID_Atendente`)
-    REFERENCES `Restaurante`.`Atendente` (`ID_Atendente`)
+    REFERENCES `mydb`.`Atendente` (`ID_Atendente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Pedido_has_Comida`
+-- Table `mydb`.`Pedido_has_Comida`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Pedido_has_Comida` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Pedido_has_Comida` (
   `Pedido_ID_Pedido` INT NOT NULL,
   `Comida_ID_Comida` INT NOT NULL,
   `Quantidade` INT NULL,
@@ -142,21 +142,21 @@ CREATE TABLE IF NOT EXISTS `Restaurante`.`Pedido_has_Comida` (
   INDEX `fk_Pedido_has_Comida_Pedido1_idx` (`Pedido_ID_Pedido` ASC) VISIBLE,
   CONSTRAINT `fk_Pedido_has_Comida_Pedido1`
     FOREIGN KEY (`Pedido_ID_Pedido`)
-    REFERENCES `Restaurante`.`Pedido` (`ID_Pedido`)
+    REFERENCES `mydb`.`Pedido` (`ID_Pedido`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pedido_has_Comida_Comida1`
     FOREIGN KEY (`Comida_ID_Comida`)
-    REFERENCES `Restaurante`.`Comida` (`ID_Comida`)
+    REFERENCES `mydb`.`Comida` (`ID_Comida`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `Restaurante`.`Comida_has_Ingrediente`
+-- Table `mydb`.`Comida_has_Ingrediente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Restaurante`.`Comida_has_Ingrediente` (
+CREATE TABLE IF NOT EXISTS `mydb`.`Comida_has_Ingrediente` (
   `Comida_ID_Comida` INT NOT NULL,
   `Ingrediente_ID_Ingrediente` INT NOT NULL,
   `Quantidade` INT NULL,
@@ -165,14 +165,24 @@ CREATE TABLE IF NOT EXISTS `Restaurante`.`Comida_has_Ingrediente` (
   INDEX `fk_Comida_has_Ingrediente_Comida1_idx` (`Comida_ID_Comida` ASC) VISIBLE,
   CONSTRAINT `fk_Comida_has_Ingrediente_Comida1`
     FOREIGN KEY (`Comida_ID_Comida`)
-    REFERENCES `Restaurante`.`Comida` (`ID_Comida`)
+    REFERENCES `mydb`.`Comida` (`ID_Comida`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Comida_has_Ingrediente_Ingrediente1`
     FOREIGN KEY (`Ingrediente_ID_Ingrediente`)
-    REFERENCES `Restaurante`.`Ingrediente` (`ID_Ingrediente`)
+    REFERENCES `mydb`.`Ingrediente` (`ID_Ingrediente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Feedback`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`Feedback` (
+  `ID_Feedback` INT NOT NULL,
+  `Feedback` VARCHAR(200) NULL,
+  PRIMARY KEY (`ID_Feedback`))
 ENGINE = InnoDB;
 
 
