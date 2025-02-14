@@ -32,6 +32,8 @@ public class EstoqueController implements Initializable {
 
     private VBox verBox = new VBox();
 
+    private Map<Integer, Estoque> estoquesModificados = new HashMap<>();
+
     @Override
     public void initialize (URL url, ResourceBundle rb) {
 
@@ -49,9 +51,7 @@ public class EstoqueController implements Initializable {
         listaEstoque.forEach((key, value) -> {
 
             try {
-                Integer quantInicial = value.getQuantidade();
                 ManipularEstoque(key, value);
-                Concluir(key, value, quantInicial);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (SQLException e) {
@@ -62,6 +62,18 @@ public class EstoqueController implements Initializable {
 
         });
 
+        jbtnConcluir.setOnAction(e -> {
+            estoquesModificados.forEach((key, value) -> {
+
+                try {
+                    EstoqueBO.ManipularEstoque(value, key);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                } catch (ClassNotFoundException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
+        });
 
     }
 
@@ -75,25 +87,6 @@ public class EstoqueController implements Initializable {
         }
     }
 
-
-    public void Concluir(Integer ID_Estoque, Estoque estoque, Integer quantInicial) throws SQLException, ClassNotFoundException {
-
-
-        jbtnConcluir.setOnAction(event -> {
-            if (quantInicial != estoque.getQuantidade()) {
-                try {
-                    EstoqueBO.ManipularEstoque(estoque, ID_Estoque);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-
-
-
-    }
 
     public void CriarEstoque() throws IOException {
         TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) jbtnCriarEstoque.getScene().getWindow());
@@ -127,6 +120,7 @@ public class EstoqueController implements Initializable {
             contador[0]++;
             quant.setText("Quantidade: " + contador[0]);
             estoque.setQuantidade(contador[0]);
+            estoquesModificados.put(ID_estoque, estoque);
 
         });
 
@@ -136,6 +130,7 @@ public class EstoqueController implements Initializable {
                 contador[0]--;
                 quant.setText("Quantidade: " + contador[0]);
                 estoque.setQuantidade(contador[0]);
+                estoquesModificados.put(ID_estoque, estoque);
             }
 
         });

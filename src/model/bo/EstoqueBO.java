@@ -7,6 +7,7 @@ import model.vo.Ingrediente;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class EstoqueBO {
@@ -39,5 +40,10 @@ public class EstoqueBO {
 
     public static void deletarEstoque(Integer id_estoque) throws SQLException, ClassNotFoundException {
         EstoqueDAO.DeletarEstoque(id_estoque);
+    }
+
+
+    public static List<String> ListarIngrediente() throws SQLException, ClassNotFoundException {
+        return IngredienteDAO.ListaIngrediente();
     }
 }

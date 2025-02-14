@@ -36,11 +36,6 @@
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
                </children>
             </HBox>
          </children>

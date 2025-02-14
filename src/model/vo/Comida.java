@@ -16,6 +16,8 @@ public class Comida {
         this.descricao = descricao;
     }
 
+    public Comida() {}
+
     public List<Ingrediente> getIngredientes() {
         return ingredientes;
     }
@@ -30,5 +32,21 @@ public class Comida {
 
     public double getPreco() {
         return preco;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
     }
 }

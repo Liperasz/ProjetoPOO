@@ -12,32 +12,28 @@ import java.util.Map;
 
 public class EstoqueDAO {
 
-    private static int ID_Estoque = 0;
 
     public static void CadastrarEstoque(Estoque estoque, int ID_Ingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
 
 
-        String sql = "insert into estoque (ID_Estoque, Validade, Quantidade, Lote, Ingrediente_ID_Ingrediente)"
-                + "   values (?, ?, ?, ?, ?)";
+        String sql = "insert into estoque (Validade, Quantidade, Lote, Ingrediente_ID_Ingrediente)"
+                + "   values (?, ?, ?, ?)";
 
         PreparedStatement stmt;
 
         stmt = conexao.prepareStatement(sql);
 
-        stmt.setInt(1, ID_Estoque);
-        stmt.setDate(2, Date.valueOf(estoque.getValidade()));
-        stmt.setInt(3, estoque.getQuantidade());
-        stmt.setInt(4, estoque.getLote());
-        stmt.setInt(5, ID_Ingrediente);
+        stmt.setDate(1, Date.valueOf(estoque.getValidade()));
+        stmt.setInt(2, estoque.getQuantidade());
+        stmt.setInt(3, estoque.getLote());
+        stmt.setInt(4, ID_Ingrediente);
 
 
         stmt.execute();
         stmt.close();
         conexao.close();
-
-        ID_Estoque++;
     }
 
     public static Map<Integer, Estoque> ListarEstoque() throws SQLException, ClassNotFoundException {

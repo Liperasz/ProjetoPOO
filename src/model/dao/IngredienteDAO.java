@@ -5,33 +5,31 @@ import model.vo.Ingrediente;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class IngredienteDAO {
 
-    private static int ID_Ingrediente = 0;
 
     public static void CadastrarIngrediente(Ingrediente ingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
 
 
-        String sql = "insert into ingrediente (ID_Ingrediente, Nome_Ingrediente)"
-                + "   values (?, ?)";
+        String sql = "insert into ingrediente (Nome_Ingrediente)"
+                + "   values (?)";
 
         PreparedStatement stmt;
 
         stmt = conexao.prepareStatement(sql);
 
-        stmt.setInt(1, ID_Ingrediente);
-        stmt.setString(2, ingrediente.getNome());
+        stmt.setString(1, ingrediente.getNome());
 
 
         stmt.execute();
         stmt.close();
         conexao.close();
-
-        ID_Ingrediente++;
     }
 
     public static boolean IngredienteExiste(Ingrediente ingrediente) throws SQLException, ClassNotFoundException {
@@ -69,6 +67,32 @@ public class IngredienteDAO {
 
             String i = rs.getString("Nome_Ingrediente");
             listaIngrediente.add(i);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+        return listaIngrediente;
+    }
+
+    public static Map<Integer, Ingrediente> ListaIngredienteMap() throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        Map<Integer, Ingrediente> listaIngrediente = new HashMap<Integer, Ingrediente>();
+
+        String sql = "select * from ingrediente";
+
+        PreparedStatement stmt;
+        stmt = conexao.prepareStatement(sql);
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+
+            String nome = rs.getString("Nome_Ingrediente");
+            int id = rs.getInt("ID_Ingrediente");
+            Ingrediente i = new Ingrediente(nome);
+            listaIngrediente.put(id, i);
         }
 
         rs.close();

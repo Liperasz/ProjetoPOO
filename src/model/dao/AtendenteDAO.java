@@ -7,36 +7,32 @@ import java.sql.*;
 
 public class AtendenteDAO {
 
-    private static int ID_Atendente = 0;
 
     public static void CadastrarAtendente(Atendente atendente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
 
 
-        String sql = "insert into atendente (ID_Atendente, Nome_Atendente, Nascimento_Atendente, Email_Atendente, Senha_Atendente, Sexo_Atendente, CPF_Atendente, Telefone_Atendente, Status_Atendente)"
-                + "   values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into atendente (Nome_Atendente, Nascimento_Atendente, Email_Atendente, Senha_Atendente, Sexo_Atendente, CPF_Atendente, Telefone_Atendente, Status_Atendente)"
+                + "   values (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement stmt;
 
         stmt = conexao.prepareStatement(sql);
 
-        stmt.setInt(1, ID_Atendente);
-        stmt.setString(2, atendente.getNome());
-        stmt.setDate(3, Date.valueOf(atendente.getNascimento()));
-        stmt.setString(4, atendente.getEmail());
-        stmt.setString(5, atendente.getSenha());
-        stmt.setString(6, atendente.getSexoString());
-        stmt.setString(7, atendente.getCpf());
-        stmt.setString(8, atendente.getTelefone());
-        stmt.setString(9, atendente.getStatus().toString());
+        stmt.setString(1, atendente.getNome());
+        stmt.setDate(2, Date.valueOf(atendente.getNascimento()));
+        stmt.setString(3, atendente.getEmail());
+        stmt.setString(4, atendente.getSenha());
+        stmt.setString(5, atendente.getSexoString());
+        stmt.setString(6, atendente.getCpf());
+        stmt.setString(7, atendente.getTelefone());
+        stmt.setString(8, atendente.getStatus().toString());
 
 
         stmt.execute();
         stmt.close();
         conexao.close();
-
-        ID_Atendente++;
     }
 
     public static boolean AtendenteExiste(Atendente atendente) throws SQLException, ClassNotFoundException {

@@ -8,36 +8,31 @@ import java.time.LocalDate;
 
 public class ClienteDAO {
 
-    private static int ID_Cliente = 0;
-
-
     public static void CadastrarCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
 
 
-        String sql = "insert into cliente (ID_Cliente, Nome_Cliente, Nascimento_Cliente, Email_Cliente, Senha_Cliente, Sexo_Cliente, CPF_Cliente, Telefone_Cliente)"
-                + "   values (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into cliente (Nome_Cliente, Nascimento_Cliente, Email_Cliente, Senha_Cliente, Sexo_Cliente, CPF_Cliente, Telefone_Cliente)"
+                + "   values (?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement stmt;
 
         stmt = conexao.prepareStatement(sql);
 
-        stmt.setInt(1, ID_Cliente);
-        stmt.setString(2, cliente.getNome());
-        stmt.setDate(3, Date.valueOf(cliente.getNascimento()));
-        stmt.setString(4, cliente.getEmail());
-        stmt.setString(5, cliente.getSenha());
-        stmt.setString(6, cliente.getSexoString());
-        stmt.setString(7, cliente.getCpf());
-        stmt.setString(8, cliente.getTelefone());
+        stmt.setString(1, cliente.getNome());
+        stmt.setDate(2, Date.valueOf(cliente.getNascimento()));
+        stmt.setString(3, cliente.getEmail());
+        stmt.setString(4, cliente.getSenha());
+        stmt.setString(5, cliente.getSexoString());
+        stmt.setString(6, cliente.getCpf());
+        stmt.setString(7, cliente.getTelefone());
 
 
         stmt.execute();
         stmt.close();
         conexao.close();
 
-        ID_Cliente++;
     }
 
     public static boolean ClienteExiste(Cliente cliente) throws SQLException, ClassNotFoundException {

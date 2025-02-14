@@ -66,7 +66,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="jbtnConcluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="57.0" prefWidth="124.0" text="Concluir">
+                        <Button fx:id="jbtnConcluir" mnemonicParsing="false" prefHeight="57.0" prefWidth="124.0" text="Concluir">
                            <font>
                               <Font size="15.0" />
                            </font></Button>

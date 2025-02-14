@@ -15,8 +15,6 @@ public class CardapioController implements Initializable {
     @FXML
     private Button jbtnVoltar;
     @FXML
-    private Button jbtnConcluir;
-    @FXML
     private Button jbtnCriarComida;
     @FXML
     private ScrollPane scrollPane;
@@ -31,10 +29,6 @@ public class CardapioController implements Initializable {
 
     }
 
-    public void Concluir() {
-        //TrocadorTelas.TrocarTela("/view/.fxml", (Stage) jbtn.getScene().getWindow());
-
-    }
 
     public void CriarComida() throws IOException {
         TrocadorTelas.TrocarTela("/view/CriarComida.fxml", (Stage) jbtnCriarComida.getScene().getWindow());

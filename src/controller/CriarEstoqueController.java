@@ -41,7 +41,7 @@ public class CriarEstoqueController implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle rb) {
         try {
-            jcbEscolherIngrediente.getItems().addAll(IngredienteBO.ListarIngrediente());
+            jcbEscolherIngrediente.getItems().addAll(EstoqueBO.ListarIngrediente());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

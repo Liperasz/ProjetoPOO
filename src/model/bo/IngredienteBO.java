@@ -15,9 +15,4 @@ public class IngredienteBO {
         }
     }
 
-    public static List<String> ListarIngrediente() throws SQLException, ClassNotFoundException {
-
-        return IngredienteDAO.ListaIngrediente();
-    }
-
 }
