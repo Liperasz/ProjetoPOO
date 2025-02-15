@@ -100,6 +100,8 @@ public class CriarComidaController implements Initializable {
 
             }
 
+            ingredientes.entrySet().removeIf(entry -> entry.getValue() == 0);
+
             System.out.println("Criando comida dentro da função concluir()");
 
             comida.setNome(jtfNome.getText());
