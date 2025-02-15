@@ -28,4 +28,32 @@ public class ComidaDAO {
         stmt.close();
         conexao.close();
     }
+
+    public static int GetID_Comida(Comida comida) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+
+        String sql = "SELECT ID_Comida FROM comida WHERE Nome_Comida = ? and Preco = ? and Descricao = ?";
+
+        PreparedStatement stmt;
+
+        stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, comida.getNome());
+        stmt.setDouble(2, comida.getPreco());
+        stmt.setString(3, comida.getDescricao());
+        ResultSet rs = stmt.executeQuery();
+
+        Integer id = -1;
+
+        if (rs.next()) {
+        id = rs.getInt("ID_Comida");
+            rs.close();
+            stmt.close();
+            conexao.close();
+            return id;
+        }
+
+        throw new SQLException("Comida não encontrada!");
+    }
 }

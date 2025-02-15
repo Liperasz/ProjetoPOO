@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lib.MascarasFX;
 import model.bo.ComidaBO;
 import model.bo.IngredienteBO;
 import model.dao.ComidaDAO;
@@ -36,19 +37,21 @@ public class CriarComidaController implements Initializable {
 
     private VBox verBox = new VBox();
 
-    private boolean selecionado = false;
-
-    private List<Ingrediente> ingredientes = new ArrayList<>();
+    private Map<Integer, Integer> ingredientes = new HashMap<>();
 
     Comida comida = new Comida();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        MascarasFX.mascaraNumero(jtfNome);
+
         scrollPane.setContent(verBox);
 
         Map<Integer, Ingrediente> listaIngredientes = new HashMap<Integer, Ingrediente>();
         try {
+
+            System.out.println("Criando lista de ingredientes");
             listaIngredientes = ComidaBO.SelecionarIngredientes();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -58,12 +61,24 @@ public class CriarComidaController implements Initializable {
 
         listaIngredientes.forEach((key, value) -> {
             try {
+
+                System.out.println("Criando ingrediente " + key);
                 ListarIngredientes(key, value);
+
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
+
+        try {
+
+            System.out.println("Tentando Criar comida");
+            Concluir(ingredientes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void Voltar() throws IOException {
@@ -71,7 +86,7 @@ public class CriarComidaController implements Initializable {
 
     }
 
-    public void Concluir(Integer ID_Ingrediente, Ingrediente ingrediente) throws IOException {
+    public void Concluir(Map<Integer, Integer> ingredientes) throws IOException {
 
         jbtnConcluir.setOnAction(event -> {
 
@@ -85,28 +100,29 @@ public class CriarComidaController implements Initializable {
 
             }
 
-            if (selecionado) {
+            System.out.println("Criando comida dentro da função concluir()");
 
-                ingredientes.add(ingrediente);
-                comida.setNome(jtfNome.getText());
-                comida.setDescricao(jtfDescricao.getText());
-                comida.setPreco(Double.valueOf(jtfValor.getText()));
-                comida.setIngredientes(ingredientes);
+            comida.setNome(jtfNome.getText());
+            comida.setDescricao(jtfDescricao.getText());
+            comida.setPreco(Double.valueOf(jtfValor.getText()));
 
-                try {
-                    ComidaBO.CadastrarComida(comida, ID_Ingrediente);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                } catch (ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
+            try {
 
-                try {
-                    TrocadorTelas.TrocarTela("/view/Cardapio.fxml", (Stage) jbtnVoltar.getScene().getWindow());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                System.out.println("Chamando a função ComidaBO.CadastrarComida()");
+                ComidaBO.CadastrarComida(comida, ingredientes);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
+
+
+            try {
+                TrocadorTelas.TrocarTela("/view/CriarComida.fxml", (Stage) jbtnConcluir.getScene().getWindow());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
 
 
         });
@@ -125,17 +141,29 @@ public class CriarComidaController implements Initializable {
         Button remover = new Button("Remover");
 
         verBox.getChildren().add(horBox);
-        horBox.getChildren().addAll(nome, adicionar, remover);
+
+        final int[] contador = {0};
+        Label quant = new Label("Quantidade: " + contador[0]);
+        horBox.getChildren().addAll(nome, adicionar, remover, quant);
+
 
         adicionar.setOnAction(e -> {
 
-            selecionado = true;
+            contador[0]++;
+            quant.setText("Quantidade: " + contador[0]);
+            ingredientes.put(ID_Ingrediente, (contador[0]));
+            System.out.println("ID = " + ID_Ingrediente + " Quantidade na lista " + ingredientes.get(ID_Ingrediente) + " Quantidade = " + contador[0]);
 
         });
 
         remover.setOnAction(e -> {
+            if (contador[0] > 0) {
 
-            selecionado = false;
+                contador[0]--;
+                quant.setText("Quantidade: " + contador[0]);
+                ingredientes.put(ID_Ingrediente, (contador[0]));
+            }
+            System.out.println("ID = " + ID_Ingrediente + " Quantidade na lista " + ingredientes.get(ID_Ingrediente) + " Quantidade = " + contador[0]);
         });
     }
 

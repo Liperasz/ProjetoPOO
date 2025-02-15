@@ -86,14 +86,19 @@ public class IngredienteDAO {
         PreparedStatement stmt;
         stmt = conexao.prepareStatement(sql);
 
+
+        System.out.println("ListaIngredienteMap");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
 
+            System.out.println("Chegou na bomba (Lista Ingrediente Map ())");
             String nome = rs.getString("Nome_Ingrediente");
             int id = rs.getInt("ID_Ingrediente");
             Ingrediente i = new Ingrediente(nome);
             listaIngrediente.put(id, i);
         }
+
+        System.out.println("Listou os Ingredientes");
 
         rs.close();
         stmt.close();
