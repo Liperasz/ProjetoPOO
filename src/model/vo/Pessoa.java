@@ -53,4 +53,32 @@ public abstract class Pessoa {
     public LocalDate getNascimento() {
         return nascimento;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setNascimento(LocalDate nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 }
