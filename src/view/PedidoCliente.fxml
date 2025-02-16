@@ -21,7 +21,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="jbtnEnviar" mnemonicParsing="false" onAction="#Enviar" prefHeight="32.0" prefWidth="88.0" text="Enviar">
+                  <Button fx:id="jbtnEnviar" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" text="Enviar">
                      <font>
                         <Font name="Arial" size="16.0" />
                      </font>

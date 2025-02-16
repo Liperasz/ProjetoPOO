@@ -1,10 +1,13 @@
 package model.dao;
 
 import model.vo.Cliente;
+import model.vo.Pessoa;
 import model.vo.Sexo;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ClienteDAO {
 
@@ -87,6 +90,34 @@ public class ClienteDAO {
         stmt.close();
         conexao.close();
         return false;
+    }
+
+    public static Cliente BuscarCliente(String email) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "select * from cliente where Email_Cliente = ?";
+
+        PreparedStatement stmt;
+        stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+
+        Cliente cliente = null;
+
+        if (rs.next()) {
+
+            Integer id_Cliente = rs.getInt("ID_Cliente");
+            String nome = rs.getString("Nome_Cliente");
+            cliente.setNome(nome);
+            cliente.setId(id_Cliente);
+
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+        return cliente;
     }
 
 }

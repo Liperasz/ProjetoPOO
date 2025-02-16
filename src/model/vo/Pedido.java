@@ -23,6 +23,8 @@ public class Pedido {
         this.momentopedido = momentopedido;
     }
 
+    public Pedido() {}
+
     public double getValor() {
         return valor;
     }
@@ -49,5 +51,33 @@ public class Pedido {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setFuncionario(Atendente funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public void setEntregue(boolean entregue) {
+        this.entregue = entregue;
+    }
+
+    public void setPago(boolean pago) {
+        this.pago = pago;
+    }
+
+    public void setPedidos(List<Comida> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public void setMomentopedido(LocalDateTime momentopedido) {
+        this.momentopedido = momentopedido;
     }
 }

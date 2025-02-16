@@ -160,4 +160,32 @@ public class AtendenteDAO {
         conexao.close();
         System.out.println("Atendente Alterado com sucesso");
     }
+
+    public static Atendente BuscarAtendente(String email) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "select * from atendente where Email_Atendente = ?";
+
+        PreparedStatement stmt;
+        stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, email);
+        ResultSet rs = stmt.executeQuery();
+
+        Atendente atendente = null;
+
+        if (rs.next()) {
+
+            Integer id_Atendente = rs.getInt("ID_Atendente");
+            String nome = rs.getString("Nome_Atendente");
+            atendente.setNome(nome);
+            atendente.setId(id_Atendente);
+
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+        return atendente;
+    }
 }

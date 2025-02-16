@@ -3,6 +3,8 @@ package model.dao;
 import model.vo.Comida;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ComidaDAO {
 
@@ -55,5 +57,36 @@ public class ComidaDAO {
         }
 
         throw new SQLException("Comida não encontrada!");
+    }
+
+    public static Map<Integer, Comida> GetComidas() throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "select * from comida";
+
+        PreparedStatement stmt;
+
+        stmt = conexao.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        Map<Integer, Comida> comidas = new HashMap<>();
+
+        while (rs.next()) {
+            Comida comida = new Comida();
+            Integer id = rs.getInt("ID_Comida");
+            String nome = rs.getString("Nome_Comida");
+            Double preco = rs.getDouble("Preco");
+            String descricao = rs.getString("Descricao");
+            comida.setNome(nome);
+            comida.setPreco(preco);
+            comida.setDescricao(descricao);
+
+            comidas.put(id, comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+        return comidas;
     }
 }

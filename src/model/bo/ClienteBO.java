@@ -14,6 +14,8 @@ import java.time.temporal.ChronoUnit;
 
 public class ClienteBO {
 
+    private static String emaillogado;
+
 
     public static void cadastrarCliente(@NotNull Cliente cliente) throws SQLException, ClassNotFoundException {
 
@@ -49,5 +51,13 @@ public class ClienteBO {
     public static boolean loginCliente(String email, String senha) throws SQLException, ClassNotFoundException {
 
         return ClienteDAO.ClienteLogin(email, senha);
+    }
+
+    public static void setEmailLogado(String email) {
+        emaillogado = email;
+    }
+
+    public static String getEmailLogado() {
+        return emaillogado;
     }
 }

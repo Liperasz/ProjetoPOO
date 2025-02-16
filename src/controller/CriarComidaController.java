@@ -39,12 +39,12 @@ public class CriarComidaController implements Initializable {
 
     private Map<Integer, Integer> ingredientes = new HashMap<>();
 
-    Comida comida = new Comida();
+    private Comida comida = new Comida();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        MascarasFX.mascaraNumero(jtfNome);
+        MascarasFX.mascaraNumero(jtfValor);
 
         scrollPane.setContent(verBox);
 

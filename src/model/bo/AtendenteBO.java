@@ -11,6 +11,8 @@ import java.util.Map;
 
 public class AtendenteBO {
 
+    private static String emaillogado;
+
     public static void cadastrarAtendente(Atendente atendente) throws SQLException, ClassNotFoundException {
 
         int erros = 0;
@@ -52,5 +54,13 @@ public class AtendenteBO {
         AtendenteDAO.AlterarAtendente(ID_Atendente, atendente);
         System.out.println("Passou de alterar atendente de AtendenteDAO");
 
+    }
+
+    public static void setEmailLogado(String email) {
+        emaillogado = email;
+    }
+
+    public static String getEmailLogado() {
+        return emaillogado;
     }
 }

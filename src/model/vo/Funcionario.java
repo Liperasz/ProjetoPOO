@@ -12,5 +12,5 @@ public abstract class Funcionario extends Pessoa {
 
     }
 
-
+    public Funcionario() {}
 }

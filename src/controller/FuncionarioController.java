@@ -105,6 +105,15 @@ public class FuncionarioController implements Initializable {
         verBox.getChildren().add(horBox);
         horBox.getChildren().addAll(lnome, lnascimento, lsexo, lcpf, ltelefone, lemail, lsenha, lstatus, editar);
 
+        Label lxnome = new Label("Nome: ");
+        Label lxnascimento = new Label("Nascimento: ");
+        Label lxsexo = new Label("Sexo: ");
+        Label lxcpf = new Label("CPF: ");
+        Label lxtelefone = new Label("Telefone: ");
+        Label lxemail = new Label("Email: ");
+        Label lxsenha = new Label("Senha: ");
+        Label lxstatus = new Label("Status: ");
+
         TextField nome = new TextField();
         TextField nascimento = new TextField();
         TextField cpf = new TextField();
@@ -120,7 +129,7 @@ public class FuncionarioController implements Initializable {
         editar.setOnAction(event -> {
 
             horBox.getChildren().clear();
-            horBox.getChildren().addAll(nome, nascimento, cpf, telefone, email, senha, status, cancelar, salvar);
+            horBox.getChildren().addAll(lxnome, nome, lxnascimento, nascimento, lxcpf, cpf, lxtelefone, telefone, lxemail, email, lxsenha, senha, lxstatus, status, cancelar, salvar);
 
         });
 

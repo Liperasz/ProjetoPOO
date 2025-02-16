@@ -51,6 +51,7 @@ public class LoginController implements Initializable { ;
         if (TrocadorTelas.getUsuario() == Usuario.CLIENTE) {
 
             if (ClienteBO.loginCliente(jtfEmail.getText(), jtfSenha.getText())) {
+                ClienteBO.setEmailLogado(jtfEmail.getText());
                 TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnLogin.getScene().getWindow());
 
             }
@@ -66,6 +67,7 @@ public class LoginController implements Initializable { ;
         } else {
 
             if (AtendenteBO.loginAtendente(jtfEmail.getText(), jtfSenha.getText())) {
+                AtendenteBO.setEmailLogado(jtfEmail.getText());
                 TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnLogin.getScene().getWindow());
 
             }
