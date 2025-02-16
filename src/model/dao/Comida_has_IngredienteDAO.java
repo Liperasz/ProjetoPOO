@@ -5,7 +5,10 @@ import model.vo.Ingrediente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Map;
 
 public class Comida_has_IngredienteDAO {

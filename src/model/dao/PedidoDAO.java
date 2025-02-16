@@ -150,6 +150,7 @@ public class PedidoDAO {
 
             Comida comida = new Comida();
             comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
 
             pedido.getPedidos().add(comida);
         }
@@ -194,4 +195,361 @@ public class PedidoDAO {
         System.out.println("Pedido Alterado com sucesso");
     }
 
+    public static Map<Integer, Pedido> GetHistoricoPedidosCliente(Cliente clientelogado) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "SELECT * \n" +
+                "FROM pedido \n" +
+                "INNER JOIN pedido_has_comida ON pedido.ID_Pedido = pedido_has_comida.Pedido_ID_Pedido \n" +
+                "INNER JOIN comida ON pedido_has_comida.Comida_ID_Comida = comida.ID_Comida \n" +
+                "LEFT JOIN cliente ON pedido.Cliente_ID_Cliente = cliente.ID_Cliente \n" +
+                "LEFT JOIN atendente ON pedido.Atendente_ID_Atendente = atendente.ID_Atendente \n" +
+                "WHERE Cliente.ID_Cliente = ? \n" +
+                "ORDER BY pedido.ID_Pedido;\n";
+
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setInt(1, clientelogado.getId());
+        ResultSet rs = stmt.executeQuery();
+
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+
+        while (rs.next()) {
+            Integer id = rs.getInt("ID_Pedido");
+
+            Pedido pedido = pedidos.getOrDefault(id, new Pedido());
+
+            if (!pedidos.containsKey(id)) {
+                pedido.setId_pedido(id);
+                pedido.setMomentopedido(rs.getTimestamp("Horario_Pedido").toLocalDateTime());
+                pedido.setValor(rs.getDouble("Valor"));
+                pedido.setEntregue(rs.getBoolean("Entregue"));
+                pedido.setPago(rs.getBoolean("Pago"));
+
+                int id_cliente = rs.getInt("Cliente_ID_Cliente");
+                if (!rs.wasNull()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(id_cliente);
+                    String nome_cliente = rs.getString("Nome_Cliente");
+                    if (nome_cliente != null) {
+                        cliente.setNome(nome_cliente);
+                    }
+                    pedido.setCliente(cliente);
+                }
+
+                int id_atendente = rs.getInt("Atendente_ID_Atendente");
+                if (!rs.wasNull()) {
+                    Atendente atendente = new Atendente();
+                    atendente.setId(id_atendente);
+                    String nome_atendente = rs.getString("Nome_Atendente");
+                    if (nome_atendente != null) {
+                        atendente.setNome(nome_atendente);
+                    }
+                    pedido.setFuncionario(atendente);
+                }
+
+
+                pedidos.put(id, pedido);
+
+                pedido.setPedidos(new ArrayList<>());
+            }
+
+            Comida comida = new Comida();
+            comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
+            pedido.getPedidos().add(comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+
+        return pedidos;
+    }
+
+    public static Map<Integer, Pedido> getHistoricoPedidos() throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "SELECT * \n" +
+                "FROM pedido \n" +
+                "INNER JOIN pedido_has_comida ON pedido.ID_Pedido = pedido_has_comida.Pedido_ID_Pedido \n" +
+                "INNER JOIN comida ON pedido_has_comida.Comida_ID_Comida = comida.ID_Comida \n" +
+                "LEFT JOIN cliente ON pedido.Cliente_ID_Cliente = cliente.ID_Cliente \n" +
+                "LEFT JOIN atendente ON pedido.Atendente_ID_Atendente = atendente.ID_Atendente \n" +
+                "ORDER BY pedido.ID_Pedido;\n";
+
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+
+        while (rs.next()) {
+            Integer id = rs.getInt("ID_Pedido");
+
+            Pedido pedido = pedidos.getOrDefault(id, new Pedido());
+
+            if (!pedidos.containsKey(id)) {
+                pedido.setId_pedido(id);
+                pedido.setMomentopedido(rs.getTimestamp("Horario_Pedido").toLocalDateTime());
+                pedido.setValor(rs.getDouble("Valor"));
+                pedido.setEntregue(rs.getBoolean("Entregue"));
+                pedido.setPago(rs.getBoolean("Pago"));
+
+                int id_cliente = rs.getInt("Cliente_ID_Cliente");
+                if (!rs.wasNull()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(id_cliente);
+                    String nome_cliente = rs.getString("Nome_Cliente");
+                    if (nome_cliente != null) {
+                        cliente.setNome(nome_cliente);
+                    }
+                    pedido.setCliente(cliente);
+                }
+
+                int id_atendente = rs.getInt("Atendente_ID_Atendente");
+                if (!rs.wasNull()) {
+                    Atendente atendente = new Atendente();
+                    atendente.setId(id_atendente);
+                    String nome_atendente = rs.getString("Nome_Atendente");
+                    if (nome_atendente != null) {
+                        atendente.setNome(nome_atendente);
+                    }
+                    pedido.setFuncionario(atendente);
+                }
+
+
+                pedidos.put(id, pedido);
+
+                pedido.setPedidos(new ArrayList<>());
+            }
+
+            Comida comida = new Comida();
+            comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
+            pedido.getPedidos().add(comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+
+        return pedidos;
+    }
+
+    public static Map<Integer, Pedido> GetHistoricoPedidosCliente(String nomedocliente) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "SELECT * \n" +
+                "FROM pedido \n" +
+                "INNER JOIN pedido_has_comida ON pedido.ID_Pedido = pedido_has_comida.Pedido_ID_Pedido \n" +
+                "INNER JOIN comida ON pedido_has_comida.Comida_ID_Comida = comida.ID_Comida \n" +
+                "LEFT JOIN cliente ON pedido.Cliente_ID_Cliente = cliente.ID_Cliente \n" +
+                "LEFT JOIN atendente ON pedido.Atendente_ID_Atendente = atendente.ID_Atendente \n" +
+                "WHERE Cliente.Nome_Cliente LIKE ? \n" +
+                "ORDER BY pedido.ID_Pedido;\n";
+
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, "%" + nomedocliente + "%");
+        ResultSet rs = stmt.executeQuery();
+
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+
+        while (rs.next()) {
+            Integer id = rs.getInt("ID_Pedido");
+
+            Pedido pedido = pedidos.getOrDefault(id, new Pedido());
+
+            if (!pedidos.containsKey(id)) {
+                pedido.setId_pedido(id);
+                pedido.setMomentopedido(rs.getTimestamp("Horario_Pedido").toLocalDateTime());
+                pedido.setValor(rs.getDouble("Valor"));
+                pedido.setEntregue(rs.getBoolean("Entregue"));
+                pedido.setPago(rs.getBoolean("Pago"));
+
+                int id_cliente = rs.getInt("Cliente_ID_Cliente");
+                if (!rs.wasNull()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(id_cliente);
+                    String nome_cliente = rs.getString("Nome_Cliente");
+                    if (nome_cliente != null) {
+                        cliente.setNome(nome_cliente);
+                    }
+                    pedido.setCliente(cliente);
+                }
+
+                int id_atendente = rs.getInt("Atendente_ID_Atendente");
+                if (!rs.wasNull()) {
+                    Atendente atendente = new Atendente();
+                    atendente.setId(id_atendente);
+                    String nome_atendente = rs.getString("Nome_Atendente");
+                    if (nome_atendente != null) {
+                        atendente.setNome(nome_atendente);
+                    }
+                    pedido.setFuncionario(atendente);
+                }
+
+
+                pedidos.put(id, pedido);
+
+                pedido.setPedidos(new ArrayList<>());
+            }
+
+            Comida comida = new Comida();
+            comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
+            pedido.getPedidos().add(comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+
+        return pedidos;
+    }
+
+    public static Map<Integer, Pedido> GetHistoricoPedidosAtendente(String nomedoatendente) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "SELECT * " +
+                "FROM pedido " +
+                "INNER JOIN pedido_has_comida ON pedido.ID_Pedido = pedido_has_comida.Pedido_ID_Pedido " +
+                "INNER JOIN comida ON pedido_has_comida.Comida_ID_Comida = comida.ID_Comida " +
+                "LEFT JOIN cliente ON pedido.Cliente_ID_Cliente = cliente.ID_Cliente " +
+                "LEFT JOIN atendente ON pedido.Atendente_ID_Atendente = atendente.ID_Atendente " +
+                "WHERE atendente.Nome_Atendente LIKE ? " +
+                "ORDER BY pedido.ID_Pedido;";
+
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, "%" + nomedoatendente + "%");
+        ResultSet rs = stmt.executeQuery();
+
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+
+        while (rs.next()) {
+            Integer id = rs.getInt("ID_Pedido");
+
+            Pedido pedido = pedidos.getOrDefault(id, new Pedido());
+
+            if (!pedidos.containsKey(id)) {
+                pedido.setId_pedido(id);
+                pedido.setMomentopedido(rs.getTimestamp("Horario_Pedido").toLocalDateTime());
+                pedido.setValor(rs.getDouble("Valor"));
+                pedido.setEntregue(rs.getBoolean("Entregue"));
+                pedido.setPago(rs.getBoolean("Pago"));
+
+                int id_cliente = rs.getInt("Cliente_ID_Cliente");
+                if (!rs.wasNull()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(id_cliente);
+                    String nome_cliente = rs.getString("Nome_Cliente");
+                    if (nome_cliente != null) {
+                        cliente.setNome(nome_cliente);
+                    }
+                    pedido.setCliente(cliente);
+                }
+
+                int id_atendente = rs.getInt("Atendente_ID_Atendente");
+                if (!rs.wasNull()) {
+                    Atendente atendente = new Atendente();
+                    atendente.setId(id_atendente);
+                    String nome_atendente = rs.getString("Nome_Atendente");
+                    if (nome_atendente != null) {
+                        atendente.setNome(nome_atendente);
+                    }
+                    pedido.setFuncionario(atendente);
+                }
+
+
+                pedidos.put(id, pedido);
+
+                pedido.setPedidos(new ArrayList<>());
+            }
+
+            Comida comida = new Comida();
+            comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
+            pedido.getPedidos().add(comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+
+        return pedidos;
+    }
+
+    public static Map<Integer, Pedido> GetHistoricoPedidosComida(String nomedacomida) throws SQLException, ClassNotFoundException {
+
+        Connection conexao = ConexionJDBC.getConexion();
+
+        String sql = "SELECT * " +
+                "FROM pedido " +
+                "INNER JOIN pedido_has_comida ON pedido.ID_Pedido = pedido_has_comida.Pedido_ID_Pedido " +
+                "INNER JOIN comida ON pedido_has_comida.Comida_ID_Comida = comida.ID_Comida " +
+                "LEFT JOIN cliente ON pedido.Cliente_ID_Cliente = cliente.ID_Cliente " +
+                "LEFT JOIN atendente ON pedido.Atendente_ID_Atendente = atendente.ID_Atendente " +
+                "WHERE comida.Nome_Comida LIKE ? " +
+                "ORDER BY pedido.ID_Pedido;";
+
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, "%" + nomedacomida + "%");
+        ResultSet rs = stmt.executeQuery();
+
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+
+        while (rs.next()) {
+            Integer id = rs.getInt("ID_Pedido");
+
+            Pedido pedido = pedidos.getOrDefault(id, new Pedido());
+
+            if (!pedidos.containsKey(id)) {
+                pedido.setId_pedido(id);
+                pedido.setMomentopedido(rs.getTimestamp("Horario_Pedido").toLocalDateTime());
+                pedido.setValor(rs.getDouble("Valor"));
+                pedido.setEntregue(rs.getBoolean("Entregue"));
+                pedido.setPago(rs.getBoolean("Pago"));
+
+                int id_cliente = rs.getInt("Cliente_ID_Cliente");
+                if (!rs.wasNull()) {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(id_cliente);
+                    String nome_cliente = rs.getString("Nome_Cliente");
+                    if (nome_cliente != null) {
+                        cliente.setNome(nome_cliente);
+                    }
+                    pedido.setCliente(cliente);
+                }
+
+                int id_atendente = rs.getInt("Atendente_ID_Atendente");
+                if (!rs.wasNull()) {
+                    Atendente atendente = new Atendente();
+                    atendente.setId(id_atendente);
+                    String nome_atendente = rs.getString("Nome_Atendente");
+                    if (nome_atendente != null) {
+                        atendente.setNome(nome_atendente);
+                    }
+                    pedido.setFuncionario(atendente);
+                }
+
+
+                pedidos.put(id, pedido);
+
+                pedido.setPedidos(new ArrayList<>());
+            }
+
+            Comida comida = new Comida();
+            comida.setNome(rs.getString("Nome_Comida"));
+            comida.setQuantidade(rs.getInt("Quantidade"));
+            pedido.getPedidos().add(comida);
+        }
+
+        rs.close();
+        stmt.close();
+        conexao.close();
+
+        return pedidos;
+    }
 }

@@ -112,9 +112,15 @@ public class PedidosAtuaisController implements Initializable {
         Label Preco = new Label(String.valueOf(pedido.getValor()));
         VBox vBox = new VBox();
         pedido.getPedidos().forEach(Comida -> {
+            Label quantidade = new Label();
             Label comida = new Label();
             comida.setText(Comida.getNome());
-            vBox.getChildren().add(comida);
+            quantidade.setText("Quantidade: " + String.valueOf(Comida.getQuantidade()));
+            HBox hbox2 = new HBox();
+            hbox2.setSpacing(15);
+            hbox2.setPadding(new Insets(0, 5, 0, 5));
+            hbox2.getChildren().addAll(comida, quantidade);
+            vBox.getChildren().add(hbox2);
         });
 
         Label Horario = new Label(Timestamp.valueOf(pedido.getMomentopedido()).toString());

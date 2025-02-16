@@ -6,9 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import model.bo.PedidoBO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RelatorioController implements Initializable {
@@ -36,6 +39,22 @@ public class RelatorioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        ArrayList<ArrayList<String>> relatorios = new ArrayList<>();
+
+        try {
+            relatorios = PedidoBO.ListarRelatorios();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            ListarRelatorios(relatorios);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void Voltar() throws IOException {
@@ -50,6 +69,15 @@ public class RelatorioController implements Initializable {
 
     public void AcessarFeedback() throws IOException {
         TrocadorTelas.TrocarTela("/view/Feedback.fxml", (Stage) jbtnFeedback.getScene().getWindow());
+
+    }
+
+    public void ListarRelatorios(ArrayList<ArrayList<String>> relatorios) throws IOException {
+
+        jlvMaisVendaMes.getItems().setAll(relatorios.get(0));
+        jlvMaisVendaAno.getItems().setAll(relatorios.get(1));
+        jlvMnVendaMes.getItems().setAll(relatorios.get(2));
+        jlvMnVendaAno.getItems().setAll(relatorios.get(3));
 
     }
 }

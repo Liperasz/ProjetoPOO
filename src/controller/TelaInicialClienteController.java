@@ -6,9 +6,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.bo.FeedBackBO;
+import model.vo.Feedback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class TelaInicialClienteController implements Initializable {
@@ -28,12 +32,15 @@ public class TelaInicialClienteController implements Initializable {
     }
 
 
-    public void EnviarComentario() throws IOException {
+    public void EnviarComentario() throws IOException, SQLException, ClassNotFoundException {
 
         if (jtfComentario.getText().isEmpty()) {
             AlertaErro();
-            throw new IOException("Erro ao cadastrar");
+            throw new IOException("Erro ao cadastrar comentario");
         }
+
+        Feedback feedback = new Feedback(jtfComentario.getText(), LocalDateTime.now());
+        FeedBackBO.CadastrarFeedBack(feedback);
     }
     public void AcessarLogin() throws IOException {
 

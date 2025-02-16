@@ -183,6 +183,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Restaurante`.`Feedback` (
   `ID_Feedback` INT NOT NULL AUTO_INCREMENT,
   `Feedback` VARCHAR(200) NULL,
+  `Horario_Feedback` DATETIME NULL,
   PRIMARY KEY (`ID_Feedback`))
 ENGINE = InnoDB;
 

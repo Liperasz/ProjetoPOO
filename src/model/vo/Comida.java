@@ -8,6 +8,7 @@ public class Comida {
     private List<Ingrediente> ingredientes;
     private double preco;
     private String descricao;
+    private Integer quantidade;
 
     public Comida(String nome, List<Ingrediente> ingredientes, double preco, String descricao) {
         this.nome = nome;
@@ -48,5 +49,13 @@ public class Comida {
 
     public void setIngredientes(List<Ingrediente> ingredientes) {
         this.ingredientes = ingredientes;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
     }
 }
