@@ -78,7 +78,7 @@ public class PedidoClienteController implements Initializable {
 
     public void Voltar() throws IOException {
         if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
-            TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnVoltar.getScene().getWindow());
+            TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         } else {
             TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
         }
@@ -89,6 +89,23 @@ public class PedidoClienteController implements Initializable {
 
         jbtnEnviar.setOnAction(event -> {
 
+            System.out.println("Criando pedido dentro da função Enviar()");
+
+            comidas.entrySet().removeIf(entry -> entry.getValue() == 0);
+            pedido.setValor(0);
+
+            comidas.forEach((key, value) -> {
+
+                Comida comida = listaComidas.get(key);
+
+                pedido.setValor(pedido.getValor() + (comida.getPreco() * value));
+
+            });
+
+            pedido.setPago(false);
+            pedido.setEntregue(false);
+            pedido.setMomentopedido(LocalDateTime.now());
+            PedidoBO.setValor(pedido.getValor());
 
             if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
 
@@ -105,7 +122,7 @@ public class PedidoClienteController implements Initializable {
 
 
                 try {
-                    TrocadorTelas.TrocarTela("/view/RegistrarPedido.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+                    TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnEnviar.getScene().getWindow());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -131,23 +148,6 @@ public class PedidoClienteController implements Initializable {
 
 
             }
-
-            System.out.println("Criando pedido dentro da função Enviar()");
-
-            comidas.entrySet().removeIf(entry -> entry.getValue() == 0);
-            pedido.setValor(0);
-
-            comidas.forEach((key, value) -> {
-
-                Comida comida = listaComidas.get(key);
-
-                pedido.setValor(pedido.getValor() + (comida.getPreco() * value));
-
-            });
-
-            pedido.setPago(false);
-            pedido.setEntregue(false);
-            pedido.setMomentopedido(LocalDateTime.now());
 
 
 
@@ -192,7 +192,6 @@ public class PedidoClienteController implements Initializable {
         Label quant = new Label("Quantidade: " + contador[0]);
         Label desc = new Label("Descricao: " + comida.getDescricao());
         Label preco = new Label("Preco: " + comida.getPreco());
-
 
         horBox.getChildren().addAll(nome, desc, preco, adicionar, remover, quant);
 

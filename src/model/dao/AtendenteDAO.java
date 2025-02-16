@@ -172,7 +172,7 @@ public class AtendenteDAO {
         stmt.setString(1, email);
         ResultSet rs = stmt.executeQuery();
 
-        Atendente atendente = null;
+        Atendente atendente = new Atendente();
 
         if (rs.next()) {
 

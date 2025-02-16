@@ -6,10 +6,14 @@ import model.dao.*;
 import model.vo.*;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PedidoBO {
+
+    public static Double valor = 0.0;
 
     public static Map<Integer, Comida> ListarComidas() throws SQLException, ClassNotFoundException {
 
@@ -20,14 +24,14 @@ public class PedidoBO {
 
     public static Atendente BuscarAtendentePedido(String email) throws SQLException, ClassNotFoundException {
 
-        Atendente pessoa = null;
+        Atendente pessoa = new Atendente();
         pessoa = AtendenteDAO.BuscarAtendente(email);
         return pessoa;
     }
 
     public static Cliente BuscarClientePedido(String email) throws SQLException, ClassNotFoundException {
 
-        Cliente pessoa = null;
+        Cliente pessoa = new Cliente();
         pessoa = ClienteDAO.BuscarCliente(email);
         return pessoa;
     }
@@ -48,6 +52,26 @@ public class PedidoBO {
 
         });
 
+    }
+
+    public static Map<Integer, Pedido> BuscarPedidos () throws SQLException, ClassNotFoundException {
+        Map<Integer, Pedido> pedidos = new HashMap<>();
+        LocalDate dia = LocalDate.now();
+        pedidos = PedidoDAO.GetPedidosAtuais(dia);
+        return pedidos;
+    }
+
+    public static void AlterarStatusPedido (Integer id_pedido, Pedido pedido) throws SQLException, ClassNotFoundException {
+        PedidoDAO.AlterarPedido(id_pedido, pedido);
+
+    }
+
+    public static Double getValor() {
+        return valor;
+    }
+
+    public static void setValor(Double valor) {
+        PedidoBO.valor = valor;
     }
 
 }

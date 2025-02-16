@@ -12,6 +12,7 @@ public class Pedido {
     private List<Comida> pedidos;
     private boolean pago;
     private LocalDateTime momentopedido;
+    private Integer id_pedido;
 
     public Pedido(double valor, Cliente cliente, Atendente funcionario, List<Comida> pedidos, LocalDateTime momentopedido, Boolean entregue, boolean pago) {
         this.valor = valor;
@@ -79,5 +80,13 @@ public class Pedido {
 
     public void setMomentopedido(LocalDateTime momentopedido) {
         this.momentopedido = momentopedido;
+    }
+
+    public Integer getId_pedido() {
+        return id_pedido;
+    }
+
+    public void setId_pedido(Integer id_pedido) {
+        this.id_pedido = id_pedido;
     }
 }

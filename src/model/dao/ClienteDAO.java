@@ -103,7 +103,7 @@ public class ClienteDAO {
         stmt.setString(1, email);
         ResultSet rs = stmt.executeQuery();
 
-        Cliente cliente = null;
+        Cliente cliente = new Cliente();
 
         if (rs.next()) {
 
