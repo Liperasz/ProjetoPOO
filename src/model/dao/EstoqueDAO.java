@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class EstoqueDAO {
 
-
+    //Função que cadastra um novo estoque
     public static void CadastrarEstoque(Estoque estoque, int ID_Ingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -36,6 +36,7 @@ public class EstoqueDAO {
         conexao.close();
     }
 
+    //Função que retorna uma lista com todos os estoques
     public static Map<Integer, Estoque> ListarEstoque() throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -68,6 +69,7 @@ public class EstoqueDAO {
         return listaEstoque;
     }
 
+    //Função que altera a quantidade de itens em um estoque
     public static void AlterarQuantEstoque(Estoque estoque, int ID_Estoque) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -86,6 +88,7 @@ public class EstoqueDAO {
         System.out.println("Estoque Alterado com sucesso!");
     }
 
+    //Função que deleta um estoque
     public static void DeletarEstoque(Integer ID_Estoque) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

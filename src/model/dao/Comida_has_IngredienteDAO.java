@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class Comida_has_IngredienteDAO {
 
+    //Função que cadastra os ingredientes que tem em uma comida
     public static void CadastrarIngredientesComida(Integer id_comida, Integer id_ingrediente, Integer quantidade) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

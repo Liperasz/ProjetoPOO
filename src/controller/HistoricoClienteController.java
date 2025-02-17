@@ -25,84 +25,91 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class HistoricoClienteController implements Initializable {
-
     @FXML
-    private Button jbtnVoltar;
+    private Button jbtnVoltar; // Botão para retornar à tela anterior
     @FXML
-    private ScrollPane scrollPane;
+    private ScrollPane scrollPane; // ScrollPane para exibição de conteúdo
 
-    private VBox verBox = new VBox();
+    private VBox verBox = new VBox(); // Caixa vertical para organizar os pedidos
 
     @Override
-    public void initialize (URL url, ResourceBundle rb) {
-
+    public void initialize(URL url, ResourceBundle rb) {
+        // Define a VBox como conteúdo do ScrollPane
         scrollPane.setContent(verBox);
 
-
+        // Mapa para armazenar os pedidos
         Map<Integer, Pedido> listaPedido = new HashMap<>();
         try {
+            // Obtém a lista de pedidos do cliente
             listaPedido = PedidoBO.ListarPedidosCliente();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e); // Trata exceções de banco de dados ou classe não encontrada
         }
 
+        // Para cada pedido na lista, adiciona-o à interface
         listaPedido.forEach((key, value) -> {
-
             try {
-                ListarPedidos(value);
+                ListarPedidos(value); // Processa e exibe cada pedido
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException(e); // Trata exceções de I/O
             }
         });
-
     }
 
+    // Retorna à tela de ClienteLogado
     public void Voltar(ActionEvent actionEvent) throws IOException {
-
         TrocadorTelas.TrocarTela("/view/ClienteLogado.fxml", (Stage) jbtnVoltar.getScene().getWindow());
-
-
     }
 
+    // Lista e exibe os detalhes de um pedido
     public void ListarPedidos(Pedido pedido) throws IOException {
+        HBox horBox = new HBox(); // Caixa horizontal para os detalhes do pedido
+        horBox.setSpacing(15); // Espaçamento horizontal entre os itens
+        horBox.setPadding(new Insets(10, 10, 10, 10)); // Margem interna
 
-        HBox horBox = new HBox();
-        horBox.setSpacing(15);
-        horBox.setPadding(new Insets(10, 10, 10, 10));
-
+        // Labels para cliente e atendente
         Label Cliente = new Label();
         Label Atendente = new Label();
 
+        // Define o nome do cliente ou mensagem de "indefinido"
         if (pedido.getCliente() != null) {
             Cliente.setText(pedido.getCliente().getNome());
         } else {
             Cliente.setText("Cliente indefinido");
         }
 
+        // Define o nome do funcionário (atendente) ou mensagem de "indefinido"
         if (pedido.getFuncionario() != null) {
             Atendente.setText(pedido.getFuncionario().getNome());
         } else {
             Atendente.setText("Funcionario indefinido");
         }
 
+        // Mostra o valor do pedido
         Label Preco = new Label(String.valueOf(pedido.getValor()));
-        VBox vBox = new VBox();
+
+        // Lista os itens do pedido (comidas e suas quantidades)
+        VBox vBox = new VBox(); // Caixa vertical para itens do pedido
         pedido.getPedidos().forEach(Comida -> {
             Label quantidade = new Label();
             Label comida = new Label();
-            comida.setText(Comida.getNome());
-            quantidade.setText("Quantidade: " + String.valueOf(Comida.getQuantidade()));
+            comida.setText(Comida.getNome()); // Nome do item
+            quantidade.setText("Quantidade: " + Comida.getQuantidade()); // Quantidade do item
+
+            // Caixa horizontal para exibir comida e quantidade
             HBox hbox2 = new HBox();
             hbox2.setSpacing(15);
             hbox2.setPadding(new Insets(0, 5, 0, 5));
             hbox2.getChildren().addAll(comida, quantidade);
+
+            // Adiciona cada item ao VBox
             vBox.getChildren().add(hbox2);
         });
 
+        // Mostra o horário do pedido
         Label Horario = new Label(Timestamp.valueOf(pedido.getMomentopedido()).toString());
 
+        // Mostra o status de pagamento do pedido
         Label pago = new Label();
         if (pedido.isPago()) {
             pago.setText("Pago");
@@ -110,6 +117,7 @@ public class HistoricoClienteController implements Initializable {
             pago.setText("Não foi pago!");
         }
 
+        // Mostra o status de entrega do pedido
         Label entregue = new Label();
         if (pedido.isEntregue()) {
             entregue.setText("Entregue");
@@ -117,10 +125,10 @@ public class HistoricoClienteController implements Initializable {
             entregue.setText("Não foi entregue!");
         }
 
+        // Adiciona todos os detalhes do pedido à HBox principal
         horBox.getChildren().addAll(Cliente, Atendente, vBox, Preco, Horario, pago, entregue);
+
+        // Adiciona a HBox principal ao VBox global
         verBox.getChildren().add(horBox);
-
-
     }
-
 }

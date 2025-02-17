@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class IngredienteDAO {
 
-
+    //função que cadastra um ingrediente
     public static void CadastrarIngrediente(Ingrediente ingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -32,6 +32,7 @@ public class IngredienteDAO {
         conexao.close();
     }
 
+    //Função que retorna se o ingrediente ja existe
     public static boolean IngredienteExiste(Ingrediente ingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -51,6 +52,8 @@ public class IngredienteDAO {
         return existe;
     }
 
+
+    //Função que retorna uma lista de ingredientes
     public static List<String> ListaIngrediente() throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -75,6 +78,7 @@ public class IngredienteDAO {
         return listaIngrediente;
     }
 
+    //Função que retorna um HashMap de ingredientes
     public static Map<Integer, Ingrediente> ListaIngredienteMap() throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -106,6 +110,7 @@ public class IngredienteDAO {
         return listaIngrediente;
     }
 
+    //Função que busca o id de um ingrediente
     public static int GetID_Ingrediente(String nomeingrediente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

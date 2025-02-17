@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class Pedido_has_ComidaDAO {
 
+    //Função que cadastra as comidas que tem em um pedido
     public static void CadastrarPedido_has_Comida(Integer id_pedido, Integer id_comida, Integer quantidade) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -28,6 +29,9 @@ public class Pedido_has_ComidaDAO {
         stmt.close();
         conexao.close();
     }
+
+    //Função que retorna uma lista com as comidas mais e menos vendidas em cada periodo:
+
 
     public static ArrayList<String> ListarMaisVendasMes(LocalDate mes) throws SQLException, ClassNotFoundException {
 

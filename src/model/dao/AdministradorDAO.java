@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 public class AdministradorDAO {
 
+    //Função que verifica o login do adm
     public static boolean AdministradorLogin(String email, String senha) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

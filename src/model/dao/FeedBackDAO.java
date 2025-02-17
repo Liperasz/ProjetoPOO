@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class FeedBackDAO {
 
+    //Função que cadastra um feedback
     public static void CadastrarFeedBack (Feedback comentario) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -29,6 +30,7 @@ public class FeedBackDAO {
         conexao.close();
     }
 
+    //Função que retorna uma lista com os feedbacks
     public static Map<Integer, Feedback> BuscarFeedBacks () throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

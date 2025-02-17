@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class ClienteDAO {
 
+    //Função que cadastra um cliente
     public static void CadastrarCliente(Cliente cliente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -38,6 +39,7 @@ public class ClienteDAO {
 
     }
 
+    //Função que verifica se o cliente ja existe
     public static boolean ClienteExiste(Cliente cliente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -57,6 +59,7 @@ public class ClienteDAO {
         return existe;
     }
 
+    //Função que verifica se o login do cliente está correto
     public static boolean ClienteLogin(String email, String senha) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -92,6 +95,7 @@ public class ClienteDAO {
         return false;
     }
 
+    //Função que busca o cliente pelo email
     public static Cliente BuscarCliente(String email) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

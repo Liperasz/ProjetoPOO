@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class PedidoDAO {
 
+    //Função que cadastra um peddio
     public static void CadastrarPedido(Pedido pedido) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -41,6 +42,7 @@ public class PedidoDAO {
         conexao.close();
     }
 
+    //Função que retorna o id de um pedido
     public static Integer GetID_Pedido(Pedido pedido) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -89,6 +91,8 @@ public class PedidoDAO {
         throw new SQLException("Pedido não encontrado!");
     }
 
+
+    //Função que retorna um map com os pedidos do dia atual
     public static Map<Integer, Pedido> GetPedidosAtuais(LocalDate dia) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -162,6 +166,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
+    //Função que altera os dados de um pedido
     public static void AlterarPedido(Integer id_pedido, Pedido pedido) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -195,6 +200,7 @@ public class PedidoDAO {
         System.out.println("Pedido Alterado com sucesso");
     }
 
+    //Função que retorna um map com os pedidos de um cliente
     public static Map<Integer, Pedido> GetHistoricoPedidosCliente(Cliente clientelogado) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -267,6 +273,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
+    //Função que retorna um map com o historico de pedidos geral
     public static Map<Integer, Pedido> getHistoricoPedidos() throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -337,6 +344,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
+    //Função que retorna um map com o historico de pedidos do cliente atraves do nome do cliente
     public static Map<Integer, Pedido> GetHistoricoPedidosCliente(String nomedocliente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -409,6 +417,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
+    //Função que retorna o historico de pedidos de um atendente atraves do nome
     public static Map<Integer, Pedido> GetHistoricoPedidosAtendente(String nomedoatendente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -481,6 +490,7 @@ public class PedidoDAO {
         return pedidos;
     }
 
+    //Função que retorna um map com o historico de pedidos de uma comida pelo nome da comida
     public static Map<Integer, Pedido> GetHistoricoPedidosComida(String nomedacomida) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();

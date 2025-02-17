@@ -13,6 +13,7 @@ import java.util.Map;
 public class AtendenteDAO {
 
 
+    //Função que cadastra o atendente
     public static void CadastrarAtendente(Atendente atendente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -40,6 +41,7 @@ public class AtendenteDAO {
         conexao.close();
     }
 
+    //Função que retorna se um atendente já existe
     public static boolean AtendenteExiste(Atendente atendente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -59,6 +61,7 @@ public class AtendenteDAO {
         return existe;
     }
 
+    //Função que verifica o login de um atendente
     public static boolean AtendenteLogin(String email, String senha) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -94,6 +97,8 @@ public class AtendenteDAO {
         return false;
     }
 
+
+    //Função que retorna uma lista de todos os atendentes
     public static Map<Integer, Atendente> ListaAtendente() throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -131,6 +136,7 @@ public class AtendenteDAO {
         return atendentes;
     }
 
+    //Função que altera os atributos de um atendente
     public static void AlterarAtendente(Integer ID_Atendente, Atendente atendente) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
@@ -161,6 +167,7 @@ public class AtendenteDAO {
         System.out.println("Atendente Alterado com sucesso");
     }
 
+    //Função que busca um atendente pelo email
     public static Atendente BuscarAtendente(String email) throws SQLException, ClassNotFoundException {
 
         Connection conexao = ConexionJDBC.getConexion();
