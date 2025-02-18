@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -117,8 +118,18 @@ public class FuncionarioController implements Initializable {
 
         // Preenche os campos com os dados atuais do atendente
         nome.setText(atendente.getNome());
-        nascimento.setText(atendente.getNascimento().toString());
-        cpf.setText(atendente.getCpf());
+
+        // Definindo o formato desejado
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataFormatada = atendente.getNascimento().format(formatter);
+        nascimento.setText(dataFormatada);
+
+        //Formatando o cpf
+        String cpfformatado = atendente.getCpf().replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
+        cpf.setText(cpfformatado);
+
+        //Formatando o telefone
+        String telefoneformatado = atendente.getTelefone().replaceAll("(\\d{2})(\\d{5})(\\d{4})", "($1) $2-$3");
         telefone.setText(atendente.getTelefone());
         email.setText(atendente.getEmail());
         senha.setText(atendente.getSenha());
