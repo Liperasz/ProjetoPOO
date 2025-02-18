@@ -154,11 +154,7 @@ public class EstoqueController implements Initializable {
                 estoque.setQuantidade(contador[0]);
                 estoquesModificados.put(ID_estoque, estoque); // Atualiza o estoque modificado no Map.
 
-                try {
-                    TrocadorTelas.TrocarTela("/view/Estoque.fxml", (Stage) remover.getScene().getWindow());
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+
             }
         });
 
@@ -167,6 +163,12 @@ public class EstoqueController implements Initializable {
             try {
                 EstoqueBO.deletarEstoque(ID_estoque);
             } catch (SQLException | ClassNotFoundException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            try {
+                TrocadorTelas.TrocarTela("/view/Estoque.fxml", (Stage) remover.getScene().getWindow());
+            } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
