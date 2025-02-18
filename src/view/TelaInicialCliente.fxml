@@ -74,7 +74,7 @@
       </GridPane>
       <ImageView fx:id="imagem" fitHeight="329.0" fitWidth="315.0" layoutX="638.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../utils/imagens/lulamoluscochora.png" />
+            <Image url="@../utils/imagens/CamaradaCamarao.jpg" />
          </image>
       </ImageView>
    </children>

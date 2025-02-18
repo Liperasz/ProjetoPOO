@@ -29,8 +29,6 @@ public class FuncionarioController implements Initializable {
     @FXML
     private Button jbtnCadastrarFuncionario; // Botão para acessar a tela de cadastro de funcionário
     @FXML
-    private Button jbtnSalvar; // Botão para salvar alterações no formulário da interface
-    @FXML
     private ScrollPane scrollPane; // Área de rolagem para exibir informações
     private VBox verBox = new VBox(); // Contêiner vertical para agrupar elementos da interface
     private Map<Integer, Atendente> atendentes = new HashMap<>(); // Mapeamento de ID e objetos Atendente

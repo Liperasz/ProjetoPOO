@@ -153,6 +153,12 @@ public class EstoqueController implements Initializable {
                 quant.setText("Quantidade: " + contador[0]);
                 estoque.setQuantidade(contador[0]);
                 estoquesModificados.put(ID_estoque, estoque); // Atualiza o estoque modificado no Map.
+
+                try {
+                    TrocadorTelas.TrocarTela("/view/Estoque.fxml", (Stage) remover.getScene().getWindow());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
 

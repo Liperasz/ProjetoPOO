@@ -51,6 +51,8 @@ public class CriarEstoqueController implements Initializable { // Classe que con
 
         // Aplica máscara de entrada no campo de validade
         MascarasFX.mascaraData(jtfValidade);
+        MascarasFX.mascaraNumero(jtfQuantidade);
+        MascarasFX.mascaraNumero(jtfLote);
     }
 
     public void Voltar() throws IOException { // Método chamado ao acionar o botão de voltar
@@ -80,6 +82,14 @@ public class CriarEstoqueController implements Initializable { // Classe que con
             } catch (IOException | SQLException | ClassNotFoundException ex) { // Tratamento de exceções em caso de erro
                 System.out.println("Erro ao criar ingrediente: " + ex.getMessage());
             }
+
+            // Reinicia a tela
+            try {
+                TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) concluir.getScene().getWindow());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+
         });
     }
 
@@ -128,5 +138,7 @@ public class CriarEstoqueController implements Initializable { // Classe que con
         // Cria um novo objeto Ingrediente com o nome informado
         Ingrediente ingrediente = new Ingrediente(NomeIngrediente.getText());
         IngredienteBO.CriarIngrediente(ingrediente); // Salva o ingrediente usando a lógica de negócios (BO)
+
+
     }
 }

@@ -109,11 +109,7 @@ public class PedidoClienteController implements Initializable {
                     throw new RuntimeException(e);
                 }
 
-                try {
-                    TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnEnviar.getScene().getWindow());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+
             } else {
                 try {
                     Cliente cliente = PedidoBO.BuscarClientePedido(ClienteBO.getEmailLogado());
@@ -122,11 +118,7 @@ public class PedidoClienteController implements Initializable {
                     throw new RuntimeException(e);
                 }
 
-                try {
-                    TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+
             }
 
             try {
@@ -136,7 +128,22 @@ public class PedidoClienteController implements Initializable {
             } catch (SQLException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
-        });
+
+            if (TrocadorTelas.getUsuario() == Usuario.ATENDENTE) {
+                try {
+                    TrocadorTelas.TrocarTela("/view/PedidosAtuais.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    TrocadorTelas.TrocarTela("/view/PagamentoCliente.fxml", (Stage) jbtnEnviar.getScene().getWindow());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            });
     }
 
     public void AlertaErro() {

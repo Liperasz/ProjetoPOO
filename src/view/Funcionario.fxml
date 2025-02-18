@@ -32,11 +32,6 @@
             </Button>
             <HBox prefHeight="247.0" prefWidth="822.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Button fx:id="jbtnSalvar" mnemonicParsing="false" prefHeight="32.0" prefWidth="171.0" text="Salvar alterações">
-                     <font>
-                        <Font name="Arial" size="16.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="jbtnCadastrarFuncionario" mnemonicParsing="false" onAction="#AcessarCadastrarFuncionario" prefHeight="31.0" prefWidth="180.0" text="Cadastrar Funcionario">
                      <font>
                         <Font size="15.0" />

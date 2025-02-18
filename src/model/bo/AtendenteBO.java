@@ -6,6 +6,8 @@ import model.dao.ClienteDAO;
 import model.vo.Atendente;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,15 +21,19 @@ public class AtendenteBO {
 
         int erros = 0;
 
+        // Verifica se o atendente tem idade maior ou igual a 18 anos
+        if (ChronoUnit.YEARS.between(atendente.getNascimento(), LocalDate.now()) < 18) {
+
+            erros++;
+        }
+
         // Valida o CPF do atendente
         if (!CNP.isValidCPF(atendente.getCpf())) {
-            System.out.println("Verificando cpf do atendente");
             erros++;
         }
 
         // Verifica se o atendente já existe no banco
         if (AtendenteDAO.AtendenteExiste(atendente)) {
-            System.out.println("Verificando se o atendente ja esta cadastrado");
             erros++;
         }
 
