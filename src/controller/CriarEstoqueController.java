@@ -34,7 +34,7 @@ public class CriarEstoqueController implements Initializable { // Classe que con
     @FXML
     private Button jbtnAddIngrediente; // Botão para adicionar um novo ingrediente
     @FXML
-    private Button jbtnConcluirEstoque; // Botão para concluir a criação de estoque
+    private Button jbtnConcluir; // Botão para concluir a criação de estoque
     @FXML
     private Button jbtnVoltar; // Botão para voltar à tela anterior
 
@@ -76,18 +76,17 @@ public class CriarEstoqueController implements Initializable { // Classe que con
         // Define ação do botão Concluir
         concluir.setOnAction(e -> {
             try {
-                // Chama o método para criar o ingrediente e fecha a janela
+                // Chama o método para criar o ingrediente
                 CriarIngrediente(NomeIngrediente);
-                stage.close();
-            } catch (IOException | SQLException | ClassNotFoundException ex) { // Tratamento de exceções em caso de erro
-                System.out.println("Erro ao criar ingrediente: " + ex.getMessage());
-            }
 
-            // Reinicia a tela
-            try {
-                TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) concluir.getScene().getWindow());
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                // Fecha a janela atual (janela de adicionar ingrediente)
+                stage.close();
+
+                // Recarrega a tela CriarEstoque usando o TrocadorTelas
+                TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) jbtnAddIngrediente.getScene().getWindow());
+            } catch (IOException | SQLException | ClassNotFoundException ex) {
+                // Tratamento de exceções em caso de erro
+                System.out.println("Erro ao criar ingrediente: " + ex.getMessage());
             }
 
         });
@@ -119,7 +118,7 @@ public class CriarEstoqueController implements Initializable { // Classe que con
         EstoqueBO.CriarEstoque(estoque); // Salva o objeto Estoque usando a lógica de negócios (BO)
 
         // Reinicia a tela Criar Estoque
-        TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) jbtnConcluirEstoque.getScene().getWindow());    }
+        TrocadorTelas.TrocarTela("/view/CriarEstoque.fxml", (Stage) jbtnConcluir.getScene().getWindow());    }
 
     public void AlertaErro() { // Método para exibir alerta de erro ao usuário
         Alert alert = new Alert(Alert.AlertType.ERROR); // Criação da caixa de alerta de erro
